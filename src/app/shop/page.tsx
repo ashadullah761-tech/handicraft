@@ -79,8 +79,7 @@ export default function Shop() {
                   <Link href={`/product/${product.id}`}>{product.name}</Link>
                 </h3>
                 <p className="text-gray-500 text-sm mb-4">Handcrafted Excellence</p>
-                <div className="mt-auto flex items-center justify-between">
-                  <p className="text-[#f4a261] font-bold text-xl">${product.price.toFixed(2)}</p>
+                <div className="mt-auto flex justify-end">
                   <button className="bg-[#e07a5f]/10 text-[#e07a5f] hover:bg-[#e07a5f] hover:text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors">
                     View Details
                   </button>

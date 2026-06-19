@@ -65,8 +65,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
           {/* Product Info */}
           <div className="flex flex-col">
             <span className="text-[#81b29a] font-semibold text-sm uppercase tracking-wider mb-2">{product.category}</span>
-            <h1 className="text-4xl md:text-5xl font-bold font-serif text-[#2d3748] mb-4">{product.name}</h1>
-            <p className="text-3xl font-medium text-[#f4a261] mb-6">${product.price.toFixed(2)}</p>
+            <h1 className="text-4xl md:text-5xl font-bold font-serif text-[#2d3748] mb-6">{product.name}</h1>
             
             <p className="text-gray-600 leading-relaxed mb-8">
               {product.description}

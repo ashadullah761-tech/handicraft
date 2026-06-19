@@ -35,7 +35,7 @@ export default function Home() {
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#2d3748]">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/top-1.jpg"
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000"
             alt="Marudhar Export Premium Wooden Furniture"
             fill
             className="object-cover object-center brightness-[0.3]"
@@ -267,16 +267,11 @@ export default function Home() {
           <p className="text-gray-300 text-lg mb-8 leading-relaxed">
             Our product line spans across intricate woodwork, traditional handlooms, exquisite pottery, and premium jewelry. We work directly with master artisans, ensuring fair trade practices while delivering bulk orders with unmatched precision and quality control.
           </p>
-          <ul className="flex flex-col md:flex-row justify-center gap-8 mb-10">
-            <li className="flex items-center gap-3 text-lg"><Globe className="text-[#e07a5f] w-6 h-6" /> 30+ Countries</li>
-            <li className="flex items-center gap-3 text-lg"><Star className="text-[#e07a5f] w-6 h-6 fill-current" /> Premium Quality</li>
-            <li className="flex items-center gap-3 text-lg"><Star className="text-[#e07a5f] w-6 h-6 fill-current" /> Custom Orders</li>
-          </ul>
           <Link 
-            href="/about" 
-            className="inline-block border-2 border-[#e07a5f] bg-[#e07a5f]/10 text-white hover:bg-[#e07a5f] hover:text-white px-8 py-3 rounded-full font-semibold transition-colors"
+            href="/contact" 
+            className="inline-block border-2 border-[#e07a5f] bg-[#e07a5f]/10 text-white hover:bg-[#e07a5f] hover:text-white px-8 py-3 rounded-full font-semibold transition-colors mt-4"
           >
-            Learn More About Us
+            Contact Us
           </Link>
         </div>
       </section>
