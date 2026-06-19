@@ -20,15 +20,16 @@ export default function Wishlist() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line
     setIsMounted(true);
   }, []);
 
   if (!isMounted) return null;
 
-  // @ts-ignore
-  const wishlistProducts = items.map(id => productDB[id] || { id, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", stock: 5 });
+  // @ts-expect-error - ProductDB does not have index signature
+  const wishlistProducts = items.map(id => productDB[id as keyof typeof productDB] || { id, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", stock: 5 });
 
-  const handleMoveToCart = (product: any) => {
+  const handleMoveToCart = (product: { id: string, name: string, price: number, image: string }) => {
     addItemToCart({
       id: product.id,
       name: product.name,

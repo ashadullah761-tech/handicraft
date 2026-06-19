@@ -11,6 +11,7 @@ export default function Cart() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line
     setIsMounted(true);
   }, []);
 
@@ -27,7 +28,7 @@ export default function Cart() {
               <ShoppingBag className="w-10 h-10 text-gray-300" />
             </div>
             <h2 className="text-2xl font-bold text-[#2d3748] mb-4">Your cart is empty</h2>
-            <p className="text-gray-500 mb-8 max-w-md">Looks like you haven't added any beautiful handcrafted items to your cart yet.</p>
+            <p className="text-gray-500 mb-8 max-w-md">Looks like you haven&apos;t added any beautiful handcrafted items to your cart yet.</p>
             <Link 
               href="/shop"
               className="bg-[#e07a5f] hover:bg-[#d06b50] text-white px-8 py-3 rounded-full font-semibold transition-colors shadow-md"

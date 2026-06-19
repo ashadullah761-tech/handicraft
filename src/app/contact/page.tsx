@@ -22,7 +22,7 @@ export default function Contact() {
         <div className="text-center mb-16">
           <span className="text-[#e07a5f] font-semibold tracking-wider uppercase text-sm mb-2 block">Get in Touch</span>
           <h1 className="text-4xl md:text-5xl font-bold font-serif text-[#2d3748] mb-4">Contact Marudhar Export</h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">We'd love to hear from you. Whether you have a question about our products, bulk orders, or custom furniture, Durg Singh is ready to help you.</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">We&apos;d love to hear from you. Whether you have a question about our products, bulk orders, or custom furniture, Durg Singh is ready to help you.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">

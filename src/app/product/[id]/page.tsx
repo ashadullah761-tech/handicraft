@@ -16,7 +16,7 @@ const productDB = {
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const productId = resolvedParams.id;
-  // @ts-ignore
+  // @ts-expect-error - ProductDB does not have index signature
   const product = productDB[productId] || { id: productId, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", description: "Beautifully handcrafted item.", material: "Mixed", stock: 5 };
   
   const [quantity, setQuantity] = useState(1);

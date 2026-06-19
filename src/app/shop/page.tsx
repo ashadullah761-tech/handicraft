@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 
 // Generate products from the images we have in the public folder
 const allProducts = [

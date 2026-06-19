@@ -2,33 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star, Globe, Phone } from "lucide-react";
-
-const categories = [
-  { name: "Pottery", image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=800", href: "/category/pottery" },
-  { name: "Handloom", image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=800", href: "/category/handloom" },
-  { name: "Jewelry", image: "https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?auto=format&fit=crop&q=80&w=800", href: "/category/jewelry" },
-  { name: "Woodwork", image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", href: "/category/woodwork" },
-];
-
-const featuredProducts = [
-  { id: "1", name: "Terracotta Vase", price: 45.00, image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=800", category: "Pottery" },
-  { id: "2", name: "Kashmiri Shawl", price: 120.00, image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?auto=format&fit=crop&q=80&w=800", category: "Handloom" },
-  { id: "3", name: "Silver Oxidized Necklace", price: 85.00, image: "https://images.unsplash.com/photo-1599643478524-fb66f70d00f8?auto=format&fit=crop&q=80&w=800", category: "Jewelry" },
-  { id: "4", name: "Hand-carved Elephant", price: 65.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Woodwork" },
-];
+import { ArrowRight, Phone } from "lucide-react";
 
 export default function Home() {
-  const topProducts = [
-    { id: 1, image: "/images/top-1.jpg", name: "Wooden Diwan" },
-    { id: 2, image: "/images/top-2.jpg", name: "Wooden Diwan" },
-    { id: 3, image: "/images/top-3.jpg", name: "Wooden Diwan" },
-    { id: 4, image: "/images/top-4.jpg", name: "Wooden Diwan" },
-  ];
-
-  // Double the products to make the marquee infinite scroll smoothly
-  const marqueeProducts = [...topProducts, ...topProducts];
-
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section / Banner */}
@@ -49,7 +25,7 @@ export default function Home() {
           </h1>
           <div className="mb-10">
             <p className="text-xl md:text-3xl text-[#f2cc8f] drop-shadow-md font-serif italic mb-2">
-              "Bringing Indian Heritage to the Global Stage"
+              &quot;Bringing Indian Heritage to the Global Stage&quot;
             </p>
             <p className="text-lg md:text-xl text-gray-200 drop-shadow-md font-medium">
               We are a premier export house specializing in authentic, handcrafted treasures.
