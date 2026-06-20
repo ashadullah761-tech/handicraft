@@ -22,7 +22,7 @@ export default function Shop() {
     : allProducts.filter(p => p.category === activeCategory);
 
   return (
-    <div className="bg-[#fdfbf7] min-h-screen py-12">
+    <div className="bg-[#FAFAF9] min-h-screen py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 text-center">

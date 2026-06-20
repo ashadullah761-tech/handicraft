@@ -47,7 +47,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   };
 
   return (
-    <div className="bg-white min-h-screen py-12">
+    <div className="bg-[#FAFAF9] min-h-screen py-12">
       <div className="container mx-auto px-4">
         <Link href="/shop" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#e07a5f] mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Shop

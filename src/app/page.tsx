@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section / Banner */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#2d3748]">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#18181b]">
         <div className="absolute inset-0 z-0">
           <Image 
             src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000"
@@ -49,7 +49,7 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Diwans */}
-      <section className="py-12 bg-[#2d3748] overflow-hidden border-b border-gray-700">
+      <section className="py-12 bg-[#18181b] overflow-hidden border-b border-gray-700">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold font-serif text-white">Our Premium Collection</h2>
           <p className="text-[#f2cc8f] mt-2 font-medium">Finest Wooden Diwans</p>
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Swings */}
-      <section className="py-12 bg-[#2d3748] overflow-hidden border-b border-gray-700">
+      <section className="py-12 bg-[#18181b] overflow-hidden border-b border-gray-700">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold font-serif text-white">Royal Heritage</h2>
           <p className="text-[#f2cc8f] mt-2 font-medium">Traditional Wooden Swings (Jhula)</p>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Coffee Tables */}
-      <section className="py-12 bg-[#2d3748] overflow-hidden border-b border-gray-700">
+      <section className="py-12 bg-[#18181b] overflow-hidden border-b border-gray-700">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold font-serif text-white">Elegant Living</h2>
           <p className="text-[#f2cc8f] mt-2 font-medium">Premium Wooden Coffee Tables</p>
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Chairs */}
-      <section className="py-12 bg-[#2d3748] overflow-hidden">
+      <section className="py-12 bg-[#18181b] overflow-hidden">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold font-serif text-white">Classic Comfort</h2>
           <p className="text-[#f2cc8f] mt-2 font-medium">Handcrafted Wooden Chairs</p>
@@ -233,7 +233,7 @@ export default function Home() {
       </section>
 
       {/* Story/About Section */}
-      <section id="about" className="py-24 bg-[#2d3748] text-white">
+      <section id="about" className="py-24 bg-[#18181b] text-white">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <span className="text-[#f4a261] font-semibold tracking-wider uppercase text-sm mb-2 block">About Marudhar Export</span>
           <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-white">Delivering Excellence Worldwide</h2>
