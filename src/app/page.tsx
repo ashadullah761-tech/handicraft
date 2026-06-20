@@ -152,7 +152,7 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
-              {[3, 4].map((num, index) => (
+              {[3, 4, 3, 4].map((num, index) => (
                 <div key={`coffee-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/coffee-${num}.jpg`} 
@@ -169,7 +169,7 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {[3, 4].map((num, index) => (
+              {[3, 4, 3, 4].map((num, index) => (
                 <div key={`coffee-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/coffee-${num}.jpg`} 
