@@ -8,26 +8,26 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section / Banner */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#18181b]">
-        <div className="absolute inset-0 z-0">
+      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#FAFAF9]">
+        <div className="absolute inset-0 z-0 opacity-20">
           <Image 
             src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=2000"
             alt="Marudhar Export Premium Wooden Furniture"
             fill
-            className="object-cover object-center brightness-[0.3]"
+            className="object-cover object-center"
             priority
             unoptimized={true}
           />
         </div>
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
-          <h1 className="text-5xl md:text-7xl font-bold font-serif text-white mb-4 leading-tight drop-shadow-lg">
+          <h1 className="text-5xl md:text-7xl font-bold font-serif text-[#2d3748] mb-4 leading-tight drop-shadow-sm">
             Marudhar Export
           </h1>
           <div className="mb-10">
-            <p className="text-xl md:text-3xl text-[#f2cc8f] drop-shadow-md font-serif italic mb-2">
+            <p className="text-xl md:text-3xl text-[#e07a5f] font-serif italic mb-2">
               &quot;Bringing Indian Heritage to the Global Stage&quot;
             </p>
-            <p className="text-lg md:text-xl text-gray-200 drop-shadow-md font-medium">
+            <p className="text-lg md:text-xl text-gray-600 font-medium">
               We are a premier export house specializing in authentic, handcrafted treasures.
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function Home() {
             </Link>
             <Link 
               href="/contact" 
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 border-2 border-[#2d3748] text-[#2d3748] px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
               Contact Us <Phone className="w-5 h-5" />
             </Link>
