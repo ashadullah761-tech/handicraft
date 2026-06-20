@@ -6,10 +6,13 @@ import { useState } from "react";
 
 // Generate products from the images we have in the public folder
 const allProducts = [
-  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan" })),
-  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing" })),
-  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table" })),
-  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair" })),
+  { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg`, category: "Wooden Diwan" },
+  { id: `swing-1`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-1.jpg`, category: "Wooden Swing" },
+  { id: `coffee-1`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-1.jpg`, category: "Coffee Table" },
+  { id: `coffee-2`, name: `Carved Center Table`, price: 199.00, image: `/images/coffee-2.jpg`, category: "Coffee Table" },
+  { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg`, category: "Coffee Table" },
+  { id: `coffee-4`, name: `Round Pedestal Table`, price: 159.00, image: `/images/coffee-4.jpg`, category: "Coffee Table" },
+  { id: `chair-1`, name: `Wooden Rocking Chair`, price: 189.00, image: `/images/chair-1.jpg`, category: "Wooden Chair" },
 ];
 
 const categories = ["All", "Wooden Diwan", "Wooden Swing", "Coffee Table", "Wooden Chair"];

@@ -10,10 +10,13 @@ import { use } from "react";
 import { useRouter } from "next/navigation";
 
 const allProducts = [
-  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 })),
-  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 })),
-  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table", description: "A perfect blend of modern design and traditional craftsmanship. Features a smooth finish and durable build.", material: "Mango Wood", stock: 8 })),
-  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair", description: "Ergonomically designed solid wood chair with intricate backrest carving. Ensures both style and comfort.", material: "Sheesham Wood", stock: 12 })),
+  { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 },
+  { id: `swing-1`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-1.jpg`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 },
+  { id: `coffee-1`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-1.jpg`, category: "Coffee Table", description: "A beautifully carved square table that adds an antique touch to your space.", material: "Mango Wood", stock: 8 },
+  { id: `coffee-2`, name: `Carved Center Table`, price: 199.00, image: `/images/coffee-2.jpg`, category: "Coffee Table", description: "A perfect blend of modern design and traditional craftsmanship. Features a smooth finish and durable build.", material: "Sheesham Wood", stock: 4 },
+  { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg`, category: "Coffee Table", description: "A versatile long wooden table suitable for your living room or study.", material: "Teak Wood", stock: 6 },
+  { id: `coffee-4`, name: `Round Pedestal Table`, price: 159.00, image: `/images/coffee-4.jpg`, category: "Coffee Table", description: "A classic round table with an elegant pedestal base, perfect for cozy corners.", material: "Rosewood", stock: 3 },
+  { id: `chair-1`, name: `Wooden Rocking Chair`, price: 189.00, image: `/images/chair-1.jpg`, category: "Wooden Chair", description: "Relax in style with this beautifully crafted wooden rocking chair featuring intricate carvings.", material: "Sheesham Wood", stock: 2 },
 ];
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
