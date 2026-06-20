@@ -49,10 +49,10 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Diwans */}
-      <section className="py-12 bg-[#18181b] overflow-hidden border-b border-gray-700">
+      <section className="py-12 bg-[#FAFAF9] overflow-hidden border-b border-gray-200">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-white">Our Premium Collection</h2>
-          <p className="text-[#f2cc8f] mt-2 font-medium">Finest Wooden Diwans</p>
+          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Our Premium Collection</h2>
+          <p className="text-[#e07a5f] mt-2 font-medium">Finest Wooden Diwans</p>
         </div>
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
@@ -95,10 +95,10 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Swings */}
-      <section className="py-12 bg-[#18181b] overflow-hidden border-b border-gray-700">
+      <section className="py-12 bg-[#F5F0E6] overflow-hidden border-b border-gray-200">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-white">Royal Heritage</h2>
-          <p className="text-[#f2cc8f] mt-2 font-medium">Traditional Wooden Swings (Jhula)</p>
+          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Royal Heritage</h2>
+          <p className="text-[#e07a5f] mt-2 font-medium">Traditional Wooden Swings (Jhula)</p>
         </div>
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
@@ -141,10 +141,10 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Coffee Tables */}
-      <section className="py-12 bg-[#18181b] overflow-hidden border-b border-gray-700">
+      <section className="py-12 bg-[#FAFAF9] overflow-hidden border-b border-gray-200">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-white">Elegant Living</h2>
-          <p className="text-[#f2cc8f] mt-2 font-medium">Premium Wooden Coffee Tables</p>
+          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Elegant Living</h2>
+          <p className="text-[#e07a5f] mt-2 font-medium">Premium Wooden Coffee Tables</p>
         </div>
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
@@ -187,10 +187,10 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Chairs */}
-      <section className="py-12 bg-[#18181b] overflow-hidden">
+      <section className="py-12 bg-[#F5F0E6] overflow-hidden">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-white">Classic Comfort</h2>
-          <p className="text-[#f2cc8f] mt-2 font-medium">Handcrafted Wooden Chairs</p>
+          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Classic Comfort</h2>
+          <p className="text-[#e07a5f] mt-2 font-medium">Handcrafted Wooden Chairs</p>
         </div>
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
@@ -233,19 +233,19 @@ export default function Home() {
       </section>
 
       {/* Story/About Section */}
-      <section id="about" className="py-24 bg-[#18181b] text-white">
+      <section id="about" className="py-24 bg-[#FAFAF9] text-[#2d3748]">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <span className="text-[#f4a261] font-semibold tracking-wider uppercase text-sm mb-2 block">About Marudhar Export</span>
-          <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-white">Delivering Excellence Worldwide</h2>
-          <p className="text-gray-300 text-lg mb-6 leading-relaxed">
-            At <strong className="text-[#f2cc8f] font-normal">Marudhar Export</strong>, we pride ourselves on sourcing and manufacturing the finest quality Indian handicrafts, textiles, and home decor items. With decades of experience in global trade, we understand the standards expected by our international clientele.
+          <span className="text-[#e07a5f] font-semibold tracking-wider uppercase text-sm mb-2 block">About Marudhar Export</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif mb-6 text-[#2d3748]">Delivering Excellence Worldwide</h2>
+          <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+            At <strong className="text-[#e07a5f] font-semibold">Marudhar Export</strong>, we pride ourselves on sourcing and manufacturing the finest quality Indian handicrafts, textiles, and home decor items. With decades of experience in global trade, we understand the standards expected by our international clientele.
           </p>
-          <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+          <p className="text-gray-600 text-lg mb-8 leading-relaxed">
             Our product line spans across intricate woodwork, traditional handlooms, exquisite pottery, and premium jewelry. We work directly with master artisans, ensuring fair trade practices while delivering bulk orders with unmatched precision and quality control.
           </p>
           <Link 
             href="/contact" 
-            className="inline-block border-2 border-[#e07a5f] bg-[#e07a5f]/10 text-white hover:bg-[#e07a5f] hover:text-white px-8 py-3 rounded-full font-semibold transition-colors mt-4"
+            className="inline-block border-2 border-[#e07a5f] text-[#e07a5f] hover:bg-[#e07a5f] hover:text-white px-8 py-3 rounded-full font-semibold transition-colors mt-4"
           >
             Contact Us
           </Link>
