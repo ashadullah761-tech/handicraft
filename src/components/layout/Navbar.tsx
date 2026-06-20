@@ -34,23 +34,23 @@ export function Navbar() {
         {/* Mobile Menu Icon */}
         <div className="flex items-center gap-4 text-[#2d3748]">
           <button 
-            aria-label="Menu" 
+            aria-label="Toggle Menu" 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden hover:text-[#e07a5f] transition-colors"
+            className="md:hidden p-2 -mr-2 hover:text-[#e07a5f] transition-colors relative z-[60]"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute top-20 left-0 w-full shadow-2xl">
+        <div className="md:hidden bg-white border-t border-gray-100 absolute top-20 left-0 w-full shadow-2xl z-[55] flex flex-col">
           <nav className="flex flex-col p-4">
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Home</Link>
-            <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Shop</Link>
-            <Link href="/#about" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">About Us</Link>
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium hover:text-[#e07a5f] transition-colors">Contact</Link>
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Home</Link>
+            <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Shop</Link>
+            <Link href="/#about" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">About Us</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium hover:text-[#e07a5f] transition-colors">Contact</Link>
           </nav>
         </div>
       )}
