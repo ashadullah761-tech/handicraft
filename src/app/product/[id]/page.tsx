@@ -81,12 +81,6 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <span className="text-sm text-gray-500 w-24">Material:</span>
                 <span className="text-[#2d3748] font-medium">{product.material}</span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-sm text-gray-500 w-24">Availability:</span>
-                <span className={product.stock > 0 ? "text-green-600 font-medium" : "text-red-500 font-medium"}>
-                  {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
-                </span>
-              </div>
             </div>
 
             <div className="border-t border-gray-200 py-8 mb-8">
@@ -108,18 +102,6 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 >
                   <Heart className={`w-6 h-6 ${isWishlisted ? "fill-current" : ""}`} />
                 </button>
-              </div>
-            </div>
-
-            {/* Features */}
-            <div className="bg-[#fdfbf7] p-6 rounded-xl space-y-4 border border-[#e07a5f]/10">
-              <div className="flex items-center gap-4 text-gray-700">
-                <div className="bg-white p-2 rounded-full shadow-sm"><Truck className="w-5 h-5 text-[#81b29a]" /></div>
-                <span className="font-medium">Free worldwide shipping on orders over $150</span>
-              </div>
-              <div className="flex items-center gap-4 text-gray-700">
-                <div className="bg-white p-2 rounded-full shadow-sm"><ShieldCheck className="w-5 h-5 text-[#81b29a]" /></div>
-                <span className="font-medium">Authenticity guaranteed. Fair trade certified.</span>
               </div>
             </div>
           </div>
