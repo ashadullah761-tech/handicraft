@@ -20,10 +20,10 @@ export function Footer() {
         <div>
           <h4 className="font-semibold text-lg mb-4 text-[#e07a5f]">Shop</h4>
           <ul className="space-y-2 text-sm text-gray-300">
-            <li><Link href="/category/jewelry" className="hover:text-[#f4a261] transition-colors">Jewelry</Link></li>
-            <li><Link href="/category/pottery" className="hover:text-[#f4a261] transition-colors">Pottery</Link></li>
-            <li><Link href="/category/home-decor" className="hover:text-[#f4a261] transition-colors">Home Decor</Link></li>
-            <li><Link href="/category/clothing" className="hover:text-[#f4a261] transition-colors">Clothing</Link></li>
+            <li><Link href="/shop" className="hover:text-[#f4a261] transition-colors">Wooden Diwan</Link></li>
+            <li><Link href="/shop" className="hover:text-[#f4a261] transition-colors">Wooden Swing</Link></li>
+            <li><Link href="/shop" className="hover:text-[#f4a261] transition-colors">Coffee Table</Link></li>
+            <li><Link href="/shop" className="hover:text-[#f4a261] transition-colors">Wooden Chair</Link></li>
           </ul>
         </div>
 
@@ -31,9 +31,9 @@ export function Footer() {
           <h4 className="font-semibold text-lg mb-4 text-[#e07a5f]">Support</h4>
           <ul className="space-y-2 text-sm text-gray-300">
             <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Contact Us</Link></li>
-            <li><Link href="/faq" className="hover:text-[#f4a261] transition-colors">FAQs</Link></li>
-            <li><Link href="/shipping" className="hover:text-[#f4a261] transition-colors">Shipping & Export Info</Link></li>
-            <li><Link href="/track-order" className="hover:text-[#f4a261] transition-colors">Track Shipment</Link></li>
+            <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Export Enquiries</Link></li>
+            <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Custom Orders</Link></li>
+            <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Bulk Pricing</Link></li>
           </ul>
         </div>
 
