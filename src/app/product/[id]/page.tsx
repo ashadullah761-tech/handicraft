@@ -56,12 +56,12 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           {/* Image Gallery */}
           <div className="space-y-4">
-            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-lg border border-gray-100">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 p-8">
               <Image 
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-contain p-4"
                 priority
               />
             </div>
