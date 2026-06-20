@@ -91,30 +91,12 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
             <div className="border-t border-gray-200 py-8 mb-8">
               <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                <div className="flex items-center border border-gray-300 rounded-full bg-white h-14 px-4 w-36 justify-between">
-                  <button 
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="text-gray-500 hover:text-[#e07a5f] transition-colors p-2"
-                  >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="font-semibold text-lg">{quantity}</span>
-                  <button 
-                    onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-                    className="text-gray-500 hover:text-[#e07a5f] transition-colors p-2"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
-                </div>
-
-                <button 
-                  onClick={handleAddToCart}
-                  disabled={product.stock === 0}
-                  className="flex-1 bg-[#e07a5f] hover:bg-[#d06b50] text-white h-14 rounded-full font-semibold flex items-center justify-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
+                <Link 
+                  href="/contact"
+                  className="flex-1 bg-[#e07a5f] hover:bg-[#d06b50] text-white h-14 rounded-full font-semibold flex items-center justify-center gap-2 transition-colors shadow-md hover:shadow-lg"
                 >
-                  <ShoppingBag className="w-5 h-5" />
-                  Add to Cart
-                </button>
+                  Enquire Now
+                </Link>
 
                 <button 
                   onClick={toggleWishlist}

@@ -89,12 +89,6 @@ export default function Wishlist() {
                   </Link>
                   <p className="text-[#f4a261] font-bold text-lg mb-6">${product.price.toFixed(2)}</p>
                   
-                  <button 
-                    onClick={() => handleMoveToCart(product)}
-                    className="mt-auto w-full bg-[#2d3748] hover:bg-black text-white py-3 rounded-xl font-medium flex items-center justify-center gap-2 transition-colors"
-                  >
-                    <ShoppingCart className="w-4 h-4" /> Move to Cart
-                  </button>
                 </div>
               </div>
             ))}
