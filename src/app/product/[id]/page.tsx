@@ -10,10 +10,10 @@ import { use } from "react";
 import { useRouter } from "next/navigation";
 
 const allProducts = [
-  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan 0${num}`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 })),
-  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing 0${num}`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 })),
-  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table 0${num}`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table", description: "A perfect blend of modern design and traditional craftsmanship. Features a smooth finish and durable build.", material: "Mango Wood", stock: 8 })),
-  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair 0${num}`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair", description: "Ergonomically designed solid wood chair with intricate backrest carving. Ensures both style and comfort.", material: "Sheesham Wood", stock: 12 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 })),
+  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table", description: "A perfect blend of modern design and traditional craftsmanship. Features a smooth finish and durable build.", material: "Mango Wood", stock: 8 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair", description: "Ergonomically designed solid wood chair with intricate backrest carving. Ensures both style and comfort.", material: "Sheesham Wood", stock: 12 })),
 ];
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
