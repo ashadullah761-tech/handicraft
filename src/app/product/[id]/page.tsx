@@ -8,16 +8,18 @@ import { Minus, Plus, Heart, ShoppingBag, Truck, ShieldCheck, ArrowLeft } from "
 import Link from "next/link";
 import { use } from "react";
 
-const productDB = {
-  "1": { id: "1", name: "Terracotta Vase", price: 45.00, image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=800", category: "Pottery", description: "Hand-thrown terracotta vase crafted by master potters in Rajasthan. Perfect for dried flowers or as a standalone piece.", material: "Natural Clay", stock: 12 },
-  // Adding placeholder fallback for other IDs
-};
+const allProducts = [
+  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan 0${num}`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing 0${num}`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 })),
+  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table 0${num}`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table", description: "A perfect blend of modern design and traditional craftsmanship. Features a smooth finish and durable build.", material: "Mango Wood", stock: 8 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair 0${num}`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair", description: "Ergonomically designed solid wood chair with intricate backrest carving. Ensures both style and comfort.", material: "Sheesham Wood", stock: 12 })),
+];
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const productId = resolvedParams.id;
-  // @ts-expect-error - ProductDB does not have index signature
-  const product = productDB[productId] || { id: productId, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", description: "Beautifully handcrafted item.", material: "Mixed", stock: 5 };
+  
+  const product = allProducts.find(p => p.id === productId) || { id: productId, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", description: "Beautifully handcrafted item.", material: "Mixed", stock: 5 };
   
   const [quantity, setQuantity] = useState(1);
   const addItemToCart = useCartStore(state => state.addItem);
