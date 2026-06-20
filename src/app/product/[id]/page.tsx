@@ -7,6 +7,7 @@ import { useWishlistStore } from "@/store/useWishlistStore";
 import { Minus, Plus, Heart, ShoppingBag, Truck, ShieldCheck, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { use } from "react";
+import { useRouter } from "next/navigation";
 
 const allProducts = [
   ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan 0${num}`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 })),
@@ -27,6 +28,8 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   
   const isWishlisted = wishlistItems.includes(product.id);
 
+  const router = useRouter();
+
   const handleAddToCart = () => {
     addItemToCart({
       id: product.id,
@@ -35,7 +38,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
       image: product.image,
       quantity
     });
-    // Can add a toast here
+    router.push('/cart');
   };
 
   const toggleWishlist = () => {

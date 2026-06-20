@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Trash2, ShoppingCart, Heart } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // In a real app, you would fetch these products from your DB using the IDs in the wishlist store
 const productDB = {
@@ -29,6 +30,8 @@ export default function Wishlist() {
   // @ts-expect-error - ProductDB does not have index signature
   const wishlistProducts = items.map(id => productDB[id as keyof typeof productDB] || { id, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", stock: 5 });
 
+  const router = useRouter();
+
   const handleMoveToCart = (product: { id: string, name: string, price: number, image: string }) => {
     addItemToCart({
       id: product.id,
@@ -38,6 +41,7 @@ export default function Wishlist() {
       quantity: 1
     });
     removeItem(product.id);
+    router.push('/cart');
   };
 
   return (
