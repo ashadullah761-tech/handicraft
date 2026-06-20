@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Globe } from "lucide-react";
+import { useState } from "react";
+import { Menu, X, Globe } from "lucide-react";
 
 export function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#e07a5f]/20 bg-[#fdfbf7]/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
@@ -30,11 +33,27 @@ export function Navbar() {
 
         {/* Mobile Menu Icon */}
         <div className="flex items-center gap-4 text-[#2d3748]">
-          <button aria-label="Menu" className="md:hidden hover:text-[#e07a5f] transition-colors">
-            <Menu className="w-6 h-6" />
+          <button 
+            aria-label="Menu" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden hover:text-[#e07a5f] transition-colors"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 absolute top-20 left-0 w-full shadow-2xl">
+          <nav className="flex flex-col p-4">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Home</Link>
+            <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Shop</Link>
+            <Link href="/#about" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">About Us</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="py-4 px-2 text-[#2d3748] font-medium hover:text-[#e07a5f] transition-colors">Contact</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
