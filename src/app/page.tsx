@@ -60,7 +60,7 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
-              {[1, 1, 1, 1].map((num, index) => (
+              {[1, 2, 3, 4].map((num, index) => (
                 <div key={`diwan-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/top-${num}.jpg`} 
@@ -77,7 +77,7 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {[1, 1, 1, 1].map((num, index) => (
+              {[1, 2, 3, 4].map((num, index) => (
                 <div key={`diwan-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/top-${num}.jpg`} 
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
-              {[1, 1, 1, 1].map((num, index) => (
+              {[1, 2, 3, 4].map((num, index) => (
                 <div key={`swing-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/swing-${num}.jpg`} 
@@ -123,7 +123,7 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {[1, 1, 1, 1].map((num, index) => (
+              {[1, 2, 3, 4].map((num, index) => (
                 <div key={`swing-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/swing-${num}.jpg`} 
@@ -198,7 +198,7 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
-              {[1, 1, 1, 1].map((num, index) => (
+              {[1, 2, 3, 4].map((num, index) => (
                 <div key={`chair-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/chair-${num}.jpg`} 
@@ -215,7 +215,7 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {[1, 1, 1, 1].map((num, index) => (
+              {[1, 2, 3, 4].map((num, index) => (
                 <div key={`chair-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/chair-${num}.jpg`} 
