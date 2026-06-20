@@ -4,15 +4,33 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-// Generate products from the images we have in the public folder
 const allProducts = [
-  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan 0${num}`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan" })),
-  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing 0${num}`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing" })),
-  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table 0${num}`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table" })),
-  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair 0${num}`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair" })),
+  // Wooden Furniture
+  { id: 'wf-1', name: 'Solid Teak Wood Dining Chair', image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture' },
+  { id: 'wf-2', name: 'Premium Oak Cabinet', image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture' },
+  { id: 'wf-3', name: 'Minimalist Wooden Bed Frame', image: 'https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture' },
+  { id: 'wf-4', name: 'Classic Wooden Coffee Table', image: 'https://images.unsplash.com/photo-1540574163026-643ea20d25b5?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture' },
+  
+  // Handcrafted Decor
+  { id: 'hd-1', name: 'Hand-painted Ceramic Vases', image: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor' },
+  { id: 'hd-2', name: 'Artisan Wall Mirror', image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor' },
+  { id: 'hd-3', name: 'Rustic Terracotta Pottery', image: 'https://images.unsplash.com/photo-1581683705068-ca8f49fc7f45?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor' },
+  { id: 'hd-4', name: 'Carved Wooden Bowls', image: 'https://images.unsplash.com/photo-1584368686622-6b9914902db2?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor' },
+
+  // Custom Furniture
+  { id: 'cf-1', name: 'Bespoke Lounge Chair', image: 'https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture' },
+  { id: 'cf-2', name: 'Custom Dining Table Setup', image: 'https://images.unsplash.com/photo-1618220179428-22790b46a0eb?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture' },
+  { id: 'cf-3', name: 'Tailored Leather Sofa', image: 'https://images.unsplash.com/photo-1604578762246-41134e37f9cc?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture' },
+  { id: 'cf-4', name: 'Personalized Writing Desk', image: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture' },
+
+  // Antique Furniture
+  { id: 'af-1', name: 'Vintage Drawer Cabinet', image: 'https://images.unsplash.com/photo-1554295405-abb8fd54f153?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture' },
+  { id: 'af-2', name: 'Victorian Era Chair', image: 'https://images.unsplash.com/photo-1615800098779-1be32e60cccc?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture' },
+  { id: 'af-3', name: 'Heritage Wooden Chest', image: 'https://images.unsplash.com/photo-1506898667547-42e22a46e125?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture' },
+  { id: 'af-4', name: 'Classic Antique Bookshelf', image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture' },
 ];
 
-const categories = ["All", "Wooden Diwan", "Wooden Swing", "Coffee Table", "Wooden Chair"];
+const categories = ["All", "Wooden Furniture", "Handcrafted Decor", "Custom Furniture", "Antique Furniture"];
 
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -67,7 +85,7 @@ export default function Shop() {
                   fill
                   unoptimized={true}
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-contain transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-[#2d3748] px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm z-10">
                   {product.category}
