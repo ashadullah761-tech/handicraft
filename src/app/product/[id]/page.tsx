@@ -10,29 +10,10 @@ import { use } from "react";
 import { useRouter } from "next/navigation";
 
 const allProducts = [
-  // Wooden Furniture
-  { id: 'wf-1', name: 'Solid Teak Wood Dining Chair', price: 299.00, image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture', description: 'Experience royal comfort with our handcrafted premium wooden chair. Carved from high-quality solid wood.', material: 'Solid Teak Wood', stock: 5 },
-  { id: 'wf-2', name: 'Premium Oak Cabinet', price: 499.00, image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture', description: 'Store your treasures in this exquisitely carved oak cabinet. A perfect blend of utility and heritage.', material: 'Oak Wood', stock: 2 },
-  { id: 'wf-3', name: 'Minimalist Wooden Bed Frame', price: 149.00, image: 'https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture', description: 'A sleek, modern wooden bed frame built to last generations.', material: 'Mango Wood', stock: 8 },
-  { id: 'wf-4', name: 'Classic Wooden Coffee Table', price: 89.00, image: 'https://images.unsplash.com/photo-1540574163026-643ea20d25b5?auto=format&fit=crop&q=80&w=800', category: 'Wooden Furniture', description: 'Center your living space with this beautiful, solid wood coffee table.', material: 'Sheesham Wood', stock: 12 },
-  
-  // Handcrafted Decor
-  { id: 'hd-1', name: 'Hand-painted Ceramic Vases', price: 99.00, image: 'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor', description: 'Beautifully hand-painted vases to elevate your interior design.', material: 'Ceramic', stock: 15 },
-  { id: 'hd-2', name: 'Artisan Wall Mirror', price: 120.00, image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor', description: 'A stunning wall mirror featuring an intricately carved wooden frame.', material: 'Glass & Wood', stock: 7 },
-  { id: 'hd-3', name: 'Rustic Terracotta Pottery', price: 45.00, image: 'https://images.unsplash.com/photo-1581683705068-ca8f49fc7f45?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor', description: 'Traditional terracotta pottery handmade by rural artisans.', material: 'Terracotta', stock: 25 },
-  { id: 'hd-4', name: 'Carved Wooden Bowls', price: 65.00, image: 'https://images.unsplash.com/photo-1584368686622-6b9914902db2?auto=format&fit=crop&q=80&w=800', category: 'Handcrafted Decor', description: 'Perfect for dining or decoration, these bowls are carved from single blocks of wood.', material: 'Mango Wood', stock: 10 },
-
-  // Custom Furniture
-  { id: 'cf-1', name: 'Bespoke Lounge Chair', price: 350.00, image: 'https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture', description: 'A custom-designed lounge chair crafted to your exact specifications.', material: 'Teak & Fabric', stock: 0 },
-  { id: 'cf-2', name: 'Custom Dining Table Setup', price: 850.00, image: 'https://images.unsplash.com/photo-1618220179428-22790b46a0eb?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture', description: 'A grand dining setup, custom built for large family gatherings.', material: 'Rosewood', stock: 0 },
-  { id: 'cf-3', name: 'Tailored Leather Sofa', price: 1200.00, image: 'https://images.unsplash.com/photo-1604578762246-41134e37f9cc?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture', description: 'Premium leather sofa designed for ultimate comfort and style.', material: 'Leather & Wood', stock: 0 },
-  { id: 'cf-4', name: 'Personalized Writing Desk', price: 450.00, image: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?auto=format&fit=crop&q=80&w=800', category: 'Custom Furniture', description: 'A quiet, inspiring workspace custom-fitted for your study.', material: 'Oak Wood', stock: 0 },
-
-  // Antique Furniture
-  { id: 'af-1', name: 'Vintage Drawer Cabinet', price: 600.00, image: 'https://images.unsplash.com/photo-1554295405-abb8fd54f153?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture', description: 'An authentic vintage piece restored to its former glory.', material: 'Reclaimed Wood', stock: 1 },
-  { id: 'af-2', name: 'Victorian Era Chair', price: 400.00, image: 'https://images.unsplash.com/photo-1615800098779-1be32e60cccc?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture', description: 'A genuine Victorian-era chair with original upholstery.', material: 'Mahogany', stock: 1 },
-  { id: 'af-3', name: 'Heritage Wooden Chest', price: 550.00, image: 'https://images.unsplash.com/photo-1506898667547-42e22a46e125?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture', description: 'A heavy, intricately carved chest from the 19th century.', material: 'Teak Wood', stock: 1 },
-  { id: 'af-4', name: 'Classic Antique Bookshelf', price: 750.00, image: 'https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?auto=format&fit=crop&q=80&w=800', category: 'Antique Furniture', description: 'Showcase your library in this massive antique bookshelf.', material: 'Rosewood', stock: 1 },
+  ...[1, 2, 3, 4].map(num => ({ id: `diwan-${num}`, name: `Premium Wooden Diwan 0${num}`, price: 299.00, image: `/images/top-${num}.jpg`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `swing-${num}`, name: `Royal Wooden Swing 0${num}`, price: 499.00, image: `/images/swing-${num}.jpg`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 })),
+  ...[1, 2, 3, 4, 5].map(num => ({ id: `coffee-${num}`, name: `Elegant Coffee Table 0${num}`, price: 149.00, image: `/images/coffee-${num}.jpg`, category: "Coffee Table", description: "A perfect blend of modern design and traditional craftsmanship. Features a smooth finish and durable build.", material: "Mango Wood", stock: 8 })),
+  ...[1, 2, 3, 4].map(num => ({ id: `chair-${num}`, name: `Classic Wooden Chair 0${num}`, price: 89.00, image: `/images/chair-${num}.jpg`, category: "Wooden Chair", description: "Ergonomically designed solid wood chair with intricate backrest carving. Ensures both style and comfort.", material: "Sheesham Wood", stock: 12 })),
 ];
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -75,12 +56,12 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           {/* Image Gallery */}
           <div className="space-y-4">
-            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-100 shadow-lg border border-gray-100">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 p-8">
               <Image 
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-contain p-4"
                 priority
               />
             </div>

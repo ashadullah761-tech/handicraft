@@ -243,8 +243,17 @@ export default function Home() {
           <p className="text-gray-600 text-lg mb-6 leading-relaxed">
             At <strong className="text-[#e07a5f] font-semibold">Marudhar Export</strong>, we pride ourselves on sourcing and manufacturing the finest quality Indian handicrafts, textiles, and home decor items. With decades of experience in global trade, we understand the standards expected by our international clientele.
           </p>
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8 text-left max-w-2xl mx-auto">
+            <h3 className="text-2xl font-serif font-bold text-[#2d3748] mb-4 text-center">Our Specializations</h3>
+            <ul className="space-y-3 text-lg text-gray-700 font-medium">
+              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-[#e07a5f]"></span> Wooden Furniture</li>
+              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-[#e07a5f]"></span> Handcrafted Decor</li>
+              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-[#e07a5f]"></span> Custom Furniture</li>
+              <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-[#e07a5f]"></span> Antique Furniture</li>
+            </ul>
+          </div>
           <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-            Our product line spans across intricate woodwork, traditional handlooms, exquisite pottery, and premium jewelry. We work directly with master artisans, ensuring fair trade practices while delivering bulk orders with unmatched precision and quality control.
+            We work directly with master artisans, ensuring fair trade practices while delivering bulk orders with unmatched precision and quality control.
           </p>
           <Link 
             href="/contact" 
