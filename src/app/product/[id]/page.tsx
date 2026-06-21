@@ -69,6 +69,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 alt={product.name}
                 fill
                 className="object-contain p-4"
+                unoptimized={true}
                 priority
               />
             </div>
