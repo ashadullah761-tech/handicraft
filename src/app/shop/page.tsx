@@ -8,6 +8,8 @@ import { useState } from "react";
 const allProducts = [
   { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg`, category: "Wooden Diwan" },
   { id: `swing-1`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-1.jpg`, category: "Wooden Swing" },
+  { id: `coffee-1`, name: `Carved Rectangle Table`, price: 189.00, image: `/images/coffee-1.jpg`, category: "Coffee Table" },
+  { id: `coffee-2`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-2.jpg`, category: "Coffee Table" },
   { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg`, category: "Coffee Table" },
   { id: `coffee-4`, name: `Round Pedestal Table`, price: 159.00, image: `/images/coffee-4.jpg`, category: "Coffee Table" },
   { id: `chair-1`, name: `Wooden Rocking Chair`, price: 189.00, image: `/images/chair-1.jpg`, category: "Wooden Chair" },
