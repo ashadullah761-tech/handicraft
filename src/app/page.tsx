@@ -208,9 +208,11 @@ export default function Home() {
                     unoptimized={true}
                     className="object-contain bg-white p-2"
                   />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Wooden Chair</h3>
-                  </div>
+                  {num !== 4 && (
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <h3 className="text-white font-bold text-center">Wooden Chair</h3>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -225,9 +227,11 @@ export default function Home() {
                     unoptimized={true}
                     className="object-contain bg-white p-2"
                   />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Wooden Chair</h3>
-                  </div>
+                  {num !== 4 && (
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <h3 className="text-white font-bold text-center">Wooden Chair</h3>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
