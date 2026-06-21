@@ -16,7 +16,10 @@ const allProducts = [
   { id: `coffee-2`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-2.jpg`, category: "Coffee Table", description: "A compact square table featuring detailed floral carvings. Perfect as a center table.", material: "Sheesham Wood", stock: 8 },
   { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg`, category: "Coffee Table", description: "A versatile long wooden table suitable for your living room or study.", material: "Teak Wood", stock: 6 },
   { id: `coffee-4`, name: `Round Pedestal Table`, price: 159.00, image: `/images/coffee-4.jpg`, category: "Coffee Table", description: "A classic round table with an elegant pedestal base, perfect for cozy corners.", material: "Rosewood", stock: 3 },
-  { id: `chair-1`, name: `Wooden Rocking Chair`, price: 189.00, image: `/images/chair-1.jpg`, category: "Wooden Chair", description: "Relax in style with this beautifully crafted wooden rocking chair featuring intricate carvings.", material: "Sheesham Wood", stock: 2 },
+  { id: `chair-1`, name: `Comfort Cushioned Chair`, price: 189.00, image: `/images/chair-1.jpg`, category: "Wooden Chair", description: "Elegant cushioned wooden chair offering premium comfort and a timeless design.", material: "Solid Wood", stock: 10 },
+  { id: `chair-2`, name: `Classic Slatted Chair`, price: 179.00, image: `/images/chair-2.jpg`, category: "Wooden Chair", description: "A traditional wooden chair with a classic slatted back design for versatile use.", material: "Sheesham Wood", stock: 5 },
+  { id: `chair-3`, name: `Wooden Wheel Rocking Chair`, price: 219.00, image: `/images/chair-3.jpg`, category: "Wooden Chair", description: "A unique rocking chair featuring a cartwheel design on the sides. Perfectly handcrafted.", material: "Teak Wood", stock: 3 },
+  { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-4.jpg`, category: "Wooden Chair", description: "Premium wheel rocking chair with detailed carvings on the backrest. A true masterpiece.", material: "Rosewood", stock: 2 },
 ];
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
