@@ -63,7 +63,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           {/* Image Gallery */}
           <div className="space-y-4">
-            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-100 p-8">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-200 shadow-lg border border-gray-100 p-8">
               <Image 
                 src={product.image}
                 alt={product.name}
@@ -104,7 +104,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                   className={`h-14 w-14 rounded-full flex items-center justify-center border-2 transition-all ${
                     isWishlisted 
                     ? "border-red-500 bg-red-50 text-red-500" 
-                    : "border-gray-200 bg-white text-gray-400 hover:border-red-200 hover:text-red-500"
+                    : "border-gray-200 bg-gray-200 text-gray-400 hover:border-red-200 hover:text-red-500"
                   }`}
                 >
                   <Heart className={`w-6 h-6 ${isWishlisted ? "fill-current" : ""}`} />

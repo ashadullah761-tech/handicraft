@@ -47,7 +47,7 @@ export default function Shop() {
                 className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
                   activeCategory === cat 
                   ? "bg-[#e07a5f] text-white shadow-md" 
-                  : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                  : "bg-gray-200 text-gray-600 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
                 {cat}
@@ -65,9 +65,9 @@ export default function Shop() {
           {filteredProducts.map((product) => (
             <div 
               key={product.id}
-              className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
+              className="group flex flex-col bg-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
             >
-              <Link href={`/product/${product.id}`} className="relative aspect-[4/5] overflow-hidden bg-white p-4 border-b border-gray-50">
+              <Link href={`/product/${product.id}`} className="relative aspect-[4/5] overflow-hidden bg-gray-200 p-4 border-b border-gray-50">
                 <Image 
                   src={product.image}
                   alt={product.name}
@@ -80,7 +80,7 @@ export default function Shop() {
                   {product.category}
                 </div>
               </Link>
-              <div className="p-6 flex-grow flex flex-col bg-white">
+              <div className="p-6 flex-grow flex flex-col bg-gray-200">
                 <h3 className="font-serif font-bold text-lg text-[#2d3748] mb-1 line-clamp-1 group-hover:text-[#e07a5f] transition-colors">
                   <Link href={`/product/${product.id}`}>{product.name}</Link>
                 </h3>

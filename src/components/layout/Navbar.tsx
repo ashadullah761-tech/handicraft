@@ -45,7 +45,7 @@ export function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute top-20 left-0 w-full shadow-2xl z-[55] flex flex-col">
+        <div className="md:hidden bg-gray-200 border-t border-gray-100 absolute top-20 left-0 w-full shadow-2xl z-[55] flex flex-col">
           <nav className="flex flex-col p-4">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Home</Link>
             <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Shop</Link>

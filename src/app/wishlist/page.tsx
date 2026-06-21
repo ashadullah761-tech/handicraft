@@ -50,7 +50,7 @@ export default function Wishlist() {
         <h1 className="text-4xl font-bold font-serif text-[#2d3748] mb-8">My Wishlist</h1>
 
         {items.length === 0 ? (
-          <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100 flex flex-col items-center">
+          <div className="bg-gray-200 rounded-2xl p-12 text-center shadow-sm border border-gray-100 flex flex-col items-center">
             <div className="w-24 h-24 bg-red-50 rounded-full flex items-center justify-center mb-6">
               <Heart className="w-10 h-10 text-red-300" />
             </div>
@@ -66,7 +66,7 @@ export default function Wishlist() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {wishlistProducts.map((product) => (
-              <div key={product.id} className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <div key={product.id} className="group flex flex-col bg-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
                 <div className="relative aspect-[4/5] bg-gray-100">
                   <Image 
                     src={product.image}
@@ -76,7 +76,7 @@ export default function Wishlist() {
                   />
                   <button 
                     onClick={() => removeItem(product.id)}
-                    className="absolute top-4 right-4 bg-white/90 hover:bg-white text-gray-500 hover:text-red-500 p-2 rounded-full shadow-sm transition-colors"
+                    className="absolute top-4 right-4 bg-gray-200/90 hover:bg-gray-200 text-gray-500 hover:text-red-500 p-2 rounded-full shadow-sm transition-colors"
                     aria-label="Remove from wishlist"
                   >
                     <Trash2 className="w-4 h-4" />

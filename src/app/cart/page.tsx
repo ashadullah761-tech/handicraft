@@ -23,7 +23,7 @@ export default function Cart() {
         <h1 className="text-4xl font-bold font-serif text-[#2d3748] mb-8">Shopping Cart</h1>
 
         {items.length === 0 ? (
-          <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100 flex flex-col items-center">
+          <div className="bg-gray-200 rounded-2xl p-12 text-center shadow-sm border border-gray-100 flex flex-col items-center">
             <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mb-6">
               <ShoppingBag className="w-10 h-10 text-gray-300" />
             </div>
@@ -41,7 +41,7 @@ export default function Cart() {
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-6">
               {items.map((item) => (
-                <div key={item.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row gap-6 items-center">
+                <div key={item.id} className="bg-gray-200 p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col sm:flex-row gap-6 items-center">
                   <div className="relative w-32 h-32 rounded-xl overflow-hidden bg-gray-50 flex-shrink-0">
                     <Image src={item.image} alt={item.name} fill className="object-cover" />
                   </div>
@@ -86,7 +86,7 @@ export default function Cart() {
             </div>
 
             {/* Order Summary */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 h-fit sticky top-28">
+            <div className="bg-gray-200 p-8 rounded-2xl shadow-sm border border-gray-100 h-fit sticky top-28">
               <h2 className="text-2xl font-bold font-serif text-[#2d3748] mb-6 border-b border-gray-100 pb-4">Order Summary</h2>
               
               <div className="space-y-4 mb-6">

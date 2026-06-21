@@ -34,7 +34,7 @@ export default function Auth() {
 
   return (
     <div className="bg-[#fdfbf7] min-h-screen py-20 flex items-center justify-center px-4">
-      <div className="bg-white w-full max-w-md rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+      <div className="bg-gray-200 w-full max-w-md rounded-2xl shadow-xl overflow-hidden border border-gray-100">
         <div className="bg-[#2d3748] p-8 text-center">
           <h1 className="text-3xl font-bold font-serif text-[#f2cc8f] mb-2">HeritageLoom</h1>
           <p className="text-gray-300 text-sm">Sign in to manage your orders and wishlist.</p>

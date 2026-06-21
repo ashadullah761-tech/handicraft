@@ -28,7 +28,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+            <div className="bg-gray-200 p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
               <div className="bg-[#e07a5f]/10 p-3 rounded-full text-[#e07a5f]">
                 <MapPin className="w-6 h-6" />
               </div>
@@ -38,7 +38,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+            <div className="bg-gray-200 p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
               <div className="bg-[#e07a5f]/10 p-3 rounded-full text-[#e07a5f]">
                 <Phone className="w-6 h-6" />
               </div>
@@ -49,7 +49,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+            <div className="bg-gray-200 p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
               <div className="bg-[#e07a5f]/10 p-3 rounded-full text-[#e07a5f]">
                 <Mail className="w-6 h-6" />
               </div>
@@ -62,7 +62,7 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+            <div className="bg-gray-200 p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
               <h2 className="text-3xl font-bold font-serif text-[#2d3748] mb-6">Send us a Message</h2>
               
               {submitted ? (

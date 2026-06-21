@@ -43,7 +43,7 @@ export default function Home() {
             </Link>
             <Link 
               href="/contact" 
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 bg-gray-200/10 hover:bg-gray-200/20 backdrop-blur-md border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto justify-center"
             >
               Contact Us <Phone className="w-5 h-5" />
             </Link>
@@ -61,14 +61,14 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`diwan-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`diwan-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/top-${num}.jpg`} 
                     alt="Wooden Diwan"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-white font-bold text-center">Wooden Diwan</h3>
@@ -78,14 +78,14 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`diwan-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`diwan-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/top-${num}.jpg`} 
                     alt="Wooden Diwan"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-white font-bold text-center">Wooden Diwan</h3>
@@ -107,14 +107,14 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`swing-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`swing-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/swing-${num}.jpg`} 
                     alt="Wooden Swing"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-white font-bold text-center">Wooden Swing</h3>
@@ -124,14 +124,14 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`swing-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`swing-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/swing-${num}.jpg`} 
                     alt="Wooden Swing"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-white font-bold text-center">Wooden Swing</h3>
@@ -153,14 +153,14 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4, 5].map((num, index) => (
-                <div key={`coffee-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`coffee-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/coffee-${num}.jpg`} 
                     alt="Wooden Coffee Table"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-white font-bold text-center">Coffee Table</h3>
@@ -170,14 +170,14 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4, 5].map((num, index) => (
-                <div key={`coffee-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`coffee-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/coffee-${num}.jpg`} 
                     alt="Wooden Coffee Table"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
                     <h3 className="text-white font-bold text-center">Coffee Table</h3>
@@ -199,14 +199,14 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`chair-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`chair-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/chair-${num}.jpg`} 
                     alt="Wooden Chair"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   {num !== 4 && (
                     <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
@@ -218,14 +218,14 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`chair-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`chair-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
                     src={`/images/chair-${num}.jpg`} 
                     alt="Wooden Chair"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     unoptimized={true}
-                    className="object-contain bg-white p-2"
+                    className="object-contain bg-gray-200 p-2"
                   />
                   {num !== 4 && (
                     <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
@@ -247,7 +247,7 @@ export default function Home() {
           <p className="text-gray-600 text-lg mb-6 leading-relaxed">
             At <strong className="text-[#e07a5f] font-semibold">Marudhar Export</strong>, we pride ourselves on sourcing and manufacturing the finest quality Indian handicrafts, textiles, and home decor items. With decades of experience in global trade, we understand the standards expected by our international clientele.
           </p>
-          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8 text-left max-w-2xl mx-auto">
+          <div className="bg-gray-200 p-8 rounded-2xl shadow-sm border border-gray-100 mb-8 text-left max-w-2xl mx-auto">
             <h3 className="text-2xl font-serif font-bold text-[#2d3748] mb-4 text-center">Our Specializations</h3>
             <ul className="space-y-3 text-lg text-gray-700 font-medium">
               <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-[#e07a5f]"></span> Wooden Furniture</li>
