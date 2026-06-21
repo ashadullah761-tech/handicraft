@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, X } from "lucide-react";
 
 export default function Home() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section / Banner */}
@@ -61,7 +64,7 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`diwan-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`diwan-1-${index}`} onClick={() => setSelectedImage(`/images/top-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/top-${num}.jpg?v=2`} 
                     alt="Wooden Diwan"
@@ -78,7 +81,7 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`diwan-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`diwan-2-${index}`} onClick={() => setSelectedImage(`/images/top-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/top-${num}.jpg?v=2`} 
                     alt="Wooden Diwan"
@@ -107,7 +110,7 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`swing-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`swing-1-${index}`} onClick={() => setSelectedImage(`/images/swing-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/swing-${num}.jpg?v=2`} 
                     alt="Wooden Swing"
@@ -124,7 +127,7 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`swing-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`swing-2-${index}`} onClick={() => setSelectedImage(`/images/swing-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/swing-${num}.jpg?v=2`} 
                     alt="Wooden Swing"
@@ -153,7 +156,7 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4, 5].map((num, index) => (
-                <div key={`coffee-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`coffee-1-${index}`} onClick={() => setSelectedImage(`/images/coffee-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/coffee-${num}.jpg?v=2`} 
                     alt="Wooden Coffee Table"
@@ -170,7 +173,7 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4, 5].map((num, index) => (
-                <div key={`coffee-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`coffee-2-${index}`} onClick={() => setSelectedImage(`/images/coffee-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/coffee-${num}.jpg?v=2`} 
                     alt="Wooden Coffee Table"
@@ -199,7 +202,7 @@ export default function Home() {
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`chair-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`chair-1-${index}`} onClick={() => setSelectedImage(`/images/chair-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/chair-${num}.jpg?v=2`} 
                     alt="Wooden Chair"
@@ -218,7 +221,7 @@ export default function Home() {
             </div>
             <div className="flex gap-6 pr-6">
               {[1, 2, 3, 4].map((num, index) => (
-                <div key={`chair-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
+                <div key={`chair-2-${index}`} onClick={() => setSelectedImage(`/images/chair-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
                     src={`/images/chair-${num}.jpg?v=2`} 
                     alt="Wooden Chair"
@@ -361,6 +364,31 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 cursor-zoom-out"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative w-full max-w-5xl h-full max-h-[90vh] cursor-default" onClick={(e) => e.stopPropagation()}>
+            <Image 
+              src={selectedImage} 
+              alt="Enlarged view" 
+              fill 
+              className="object-contain" 
+              unoptimized={true}
+            />
+            <button 
+              className="absolute -top-12 right-0 md:top-4 md:-right-16 text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors cursor-pointer"
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close"
+            >
+              <X className="w-8 h-8" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
