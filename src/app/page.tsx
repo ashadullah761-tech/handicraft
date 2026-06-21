@@ -239,6 +239,94 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Custom Furniture Request Section */}
+      <section className="py-20 bg-gray-100 overflow-hidden border-b border-gray-200 relative">
+        <div className="container mx-auto px-4 max-w-5xl relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#2d3748]">Got a Design in Mind?</h2>
+            <p className="text-[#e07a5f] mt-2 font-medium text-lg">Upload your photo and we will make the exact same furniture for you!</p>
+          </div>
+          
+          <div className="bg-gray-200 rounded-3xl shadow-xl overflow-hidden border border-gray-300 flex flex-col md:flex-row">
+            {/* Left Side Info */}
+            <div className="bg-[#2C1A12] p-8 md:p-12 text-white md:w-2/5 flex flex-col justify-center relative overflow-hidden">
+              <div className="relative z-10">
+                <h3 className="text-3xl font-bold font-serif mb-4 text-[#f2cc8f]">Custom Craftsmanship</h3>
+                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                  Can&apos;t find exactly what you&apos;re looking for? Don&apos;t worry! Upload a picture of any furniture design, and our master artisans will carve and build it exclusively for you.
+                </p>
+                <ul className="space-y-4 text-gray-200 font-medium">
+                  <li className="flex items-center gap-3">
+                    <div className="bg-[#e07a5f] p-1 rounded-full"><svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+                    Exact Replica Making
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="bg-[#e07a5f] p-1 rounded-full"><svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+                    Premium Quality Wood
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="bg-[#e07a5f] p-1 rounded-full"><svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg></div>
+                    Custom Dimensions
+                  </li>
+                </ul>
+              </div>
+              {/* Decorative circle */}
+              <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-[#e07a5f] rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+            </div>
+            
+            {/* Right Side Form */}
+            <div className="p-8 md:p-12 md:w-3/5 bg-gray-100">
+              <form 
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  alert("Thank you! Your custom design request has been submitted successfully. Our shopkeeper will contact you shortly.");
+                }}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-gray-700 font-bold mb-2">Your Name</label>
+                    <input type="text" required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e07a5f] focus:border-transparent transition-all bg-gray-50" placeholder="Enter your name" />
+                  </div>
+                  <div>
+                    <label className="block text-gray-700 font-bold mb-2">Contact Number</label>
+                    <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e07a5f] focus:border-transparent transition-all bg-gray-50" placeholder="Your phone number" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-bold mb-2">Upload Furniture Photo</label>
+                  <div className="mt-1 flex justify-center px-6 pt-6 pb-6 border-2 border-gray-400 border-dashed rounded-xl bg-gray-50 hover:bg-gray-200 transition-colors cursor-pointer relative group">
+                    <div className="space-y-2 text-center">
+                      <svg className="mx-auto h-12 w-12 text-gray-400 group-hover:text-[#e07a5f] transition-colors" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                      <div className="flex text-sm text-gray-600 justify-center">
+                        <label className="relative cursor-pointer rounded-md font-medium text-[#e07a5f] hover:text-[#d06b50] focus-within:outline-none">
+                          <span>Upload a picture</span>
+                          <input type="file" className="sr-only" accept="image/*" required />
+                        </label>
+                        <p className="pl-1">or drag and drop here</p>
+                      </div>
+                      <p className="text-xs text-gray-500">PNG, JPG up to 10MB</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-bold mb-2">Any Specific Details? (Optional)</label>
+                  <textarea rows={3} className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e07a5f] focus:border-transparent transition-all bg-gray-50" placeholder="E.g., I want this in Teak Wood, dimensions 5ft x 3ft..."></textarea>
+                </div>
+
+                <button type="submit" className="w-full bg-[#e07a5f] hover:bg-[#d06b50] text-white font-bold py-4 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1 text-lg">
+                  Submit Order Request
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Story/About Section */}
       <section id="about" className="py-24 bg-[#FAFAF9] text-[#2d3748]">
         <div className="container mx-auto px-4 max-w-4xl text-center">
