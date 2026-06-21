@@ -63,7 +63,7 @@ export default function Home() {
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`diwan-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/top-${num}.jpg`} 
+                    src={`/images/top-${num}.jpg?v=2`} 
                     alt="Wooden Diwan"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -80,7 +80,7 @@ export default function Home() {
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`diwan-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/top-${num}.jpg`} 
+                    src={`/images/top-${num}.jpg?v=2`} 
                     alt="Wooden Diwan"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -109,7 +109,7 @@ export default function Home() {
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`swing-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/swing-${num}.jpg`} 
+                    src={`/images/swing-${num}.jpg?v=2`} 
                     alt="Wooden Swing"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -126,7 +126,7 @@ export default function Home() {
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`swing-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/swing-${num}.jpg`} 
+                    src={`/images/swing-${num}.jpg?v=2`} 
                     alt="Wooden Swing"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -155,7 +155,7 @@ export default function Home() {
               {[1, 2, 3, 4, 5].map((num, index) => (
                 <div key={`coffee-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/coffee-${num}.jpg`} 
+                    src={`/images/coffee-${num}.jpg?v=2`} 
                     alt="Wooden Coffee Table"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -172,7 +172,7 @@ export default function Home() {
               {[1, 2, 3, 4, 5].map((num, index) => (
                 <div key={`coffee-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/coffee-${num}.jpg`} 
+                    src={`/images/coffee-${num}.jpg?v=2`} 
                     alt="Wooden Coffee Table"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -201,7 +201,7 @@ export default function Home() {
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`chair-1-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/chair-${num}.jpg`} 
+                    src={`/images/chair-${num}.jpg?v=2`} 
                     alt="Wooden Chair"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -220,7 +220,7 @@ export default function Home() {
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`chair-2-${index}`} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105">
                   <Image 
-                    src={`/images/chair-${num}.jpg`} 
+                    src={`/images/chair-${num}.jpg?v=2`} 
                     alt="Wooden Chair"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
