@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { LanguageSelector } from "@/components/ui/LanguageSelector";
 
 export const metadata: Metadata = {
   title: "Marudhar Export | Premium Handicrafts",
@@ -16,18 +18,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased min-h-full flex flex-col bg-gray-100`}>
+        {/* Google Translate Hidden Element */}
+        <div id="google_translate_element" style={{ display: "none" }}></div>
+        <Script 
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
+        <Script id="google-translate-init" strategy="afterInteractive">
+          {`
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+            }
+          `}
+        </Script>
+
         <Navbar />
         <main className="flex-grow">
           {children}
         </main>
         <Footer />
         
+        <LanguageSelector />
+
         {/* Floating WhatsApp Button */}
         <a 
           href="https://wa.me/917877609451?text=Hello%20Marudhar%20Export!%20I%20have%20an%20enquiry." 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 md:p-5 rounded-full shadow-2xl transition-all hover:scale-110 z-50 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#25D366] hover:bg-[#128C7E] text-white p-4 md:p-5 rounded-full shadow-2xl transition-all hover:scale-110 z-40 flex items-center justify-center group"
           aria-label="Chat on WhatsApp"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 md:w-10 md:h-10">
