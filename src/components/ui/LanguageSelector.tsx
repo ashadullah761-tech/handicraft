@@ -157,7 +157,7 @@ export function LanguageSelector() {
 
       {/* The Dropdown Modal */}
       {isOpen && (
-        <div className="absolute top-full right-0 mt-6 bg-white rounded-2xl shadow-2xl border border-gray-200 w-[300px] sm:w-[350px] overflow-hidden flex flex-col transform origin-top-right transition-all animate-in slide-in-from-top-2 z-[100]">
+        <div className="absolute top-full left-0 md:left-auto md:right-0 mt-6 bg-white rounded-2xl shadow-2xl border border-gray-200 w-[300px] sm:w-[350px] overflow-hidden flex flex-col transform origin-top-left md:origin-top-right transition-all animate-in slide-in-from-top-2 z-[100]">
           <div className="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
             <h3 className="font-bold text-gray-800 font-serif text-lg">Select Language</h3>
             <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-gray-600 bg-white p-1 rounded-full shadow-sm">
