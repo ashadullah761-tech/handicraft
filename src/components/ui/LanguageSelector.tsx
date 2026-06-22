@@ -144,19 +144,20 @@ export function LanguageSelector() {
   );
 
   return (
-    <div className="fixed bottom-24 left-6 md:bottom-8 md:left-8 z-50" ref={dropdownRef}>
-      {/* The Floating Button */}
+    <div className="relative inline-block" ref={dropdownRef}>
+      {/* The Navbar Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#2d3748] hover:bg-[#1a202c] text-white p-4 rounded-full shadow-2xl transition-all hover:scale-110 flex items-center justify-center group border-2 border-white/20"
+        className="flex items-center gap-2 text-[#2d3748] font-medium hover:text-[#e07a5f] transition-colors"
         aria-label="Change Language"
       >
-        <Globe className="w-6 h-6 sm:w-7 sm:h-7" />
+        <Globe className="w-5 h-5" />
+        <span>Languages</span>
       </button>
 
       {/* The Dropdown Modal */}
       {isOpen && (
-        <div className="absolute bottom-full left-0 mb-4 bg-white rounded-2xl shadow-2xl border border-gray-200 w-[300px] sm:w-[350px] overflow-hidden flex flex-col transform origin-bottom-left transition-all animate-in slide-in-from-bottom-5">
+        <div className="absolute top-full right-0 mt-6 bg-white rounded-2xl shadow-2xl border border-gray-200 w-[300px] sm:w-[350px] overflow-hidden flex flex-col transform origin-top-right transition-all animate-in slide-in-from-top-2 z-[100]">
           <div className="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
             <h3 className="font-bold text-gray-800 font-serif text-lg">Select Language</h3>
             <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-gray-600 bg-white p-1 rounded-full shadow-sm">

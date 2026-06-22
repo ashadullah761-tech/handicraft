@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
+import { LanguageSelector } from "@/components/ui/LanguageSelector";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -29,6 +30,7 @@ export function Navbar() {
           <Link href="/shop" className="hover:text-[#e07a5f] transition-colors">Shop</Link>
           <Link href="/#about" className="hover:text-[#e07a5f] transition-colors">About Us</Link>
           <Link href="/contact" className="hover:text-[#e07a5f] transition-colors">Contact</Link>
+          <LanguageSelector />
         </nav>
 
         {/* Mobile Menu Icon */}
@@ -50,7 +52,10 @@ export function Navbar() {
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Home</Link>
             <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Shop</Link>
             <Link href="/#about" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">About Us</Link>
-            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium hover:text-[#e07a5f] transition-colors">Contact</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Contact</Link>
+            <div className="py-4 px-2">
+              <LanguageSelector />
+            </div>
           </nav>
         </div>
       )}

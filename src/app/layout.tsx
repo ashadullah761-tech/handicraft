@@ -3,7 +3,6 @@ import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { LanguageSelector } from "@/components/ui/LanguageSelector";
 
 export const metadata: Metadata = {
   title: "Marudhar Export | Premium Handicrafts",
@@ -37,8 +36,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        
-        <LanguageSelector />
 
         {/* Floating WhatsApp Button */}
         <a 
