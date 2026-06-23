@@ -7,7 +7,13 @@ import { useState } from "react";
 // Generate products from the images we have in the public folder
 const allProducts = [
   { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg?v=2`, category: "Wooden Diwan" },
+  { id: `diwan-2`, name: `Carved Wooden Diwan`, price: 349.00, image: `/images/top-2.jpg?v=2`, category: "Wooden Diwan" },
+  { id: `diwan-3`, name: `Royal Pattern Diwan`, price: 399.00, image: `/images/top-3.jpg?v=2`, category: "Wooden Diwan" },
+  { id: `diwan-4`, name: `Classic Traditional Diwan`, price: 289.00, image: `/images/top-4.jpg?v=2`, category: "Wooden Diwan" },
   { id: `swing-1`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-1.jpg?v=2`, category: "Wooden Swing" },
+  { id: `swing-2`, name: `Carved Indoor Swing`, price: 549.00, image: `/images/swing-2.jpg?v=2`, category: "Wooden Swing" },
+  { id: `swing-3`, name: `Premium Teak Swing`, price: 699.00, image: `/images/swing-3.jpg?v=2`, category: "Wooden Swing" },
+  { id: `swing-4`, name: `Antique Pattern Jhula`, price: 599.00, image: `/images/swing-4.jpg?v=2`, category: "Wooden Swing" },
   { id: `coffee-1`, name: `Carved Rectangle Table`, price: 189.00, image: `/images/coffee-1.jpg?v=2`, category: "Coffee Table" },
   { id: `coffee-2`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-2.jpg?v=2`, category: "Coffee Table" },
   { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg?v=2`, category: "Coffee Table" },
