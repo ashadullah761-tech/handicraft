@@ -17,6 +17,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased min-h-full flex flex-col bg-gray-100`}>
+        {/* Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-Z3QKWVRBGC`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Z3QKWVRBGC');
+          `}
+        </Script>
+
         {/* Google Translate Hidden Element */}
         <div id="google_translate_element" style={{ display: "none" }}></div>
         <Script 
