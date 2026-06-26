@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
 
 // Generate products from the images we have in the public folder
-const allProducts = [
+const staticProducts = [
   { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg?v=2`, category: "Wooden Diwan" },
   { id: `diwan-2`, name: `Carved Wooden Diwan`, price: 349.00, image: `/images/top-2.jpg?v=2`, category: "Wooden Diwan" },
   { id: `diwan-3`, name: `Royal Pattern Diwan`, price: 399.00, image: `/images/top-3.jpg?v=2`, category: "Wooden Diwan" },
@@ -29,6 +30,27 @@ const categories = ["All", "Wooden Diwan", "Wooden Swing", "Coffee Table", "Wood
 
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [dbProducts, setDbProducts] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const supabase = createClient();
+      const { data } = await supabase.from('products').select('*');
+      if (data) {
+        const mapped = data.map(p => ({
+          id: p.id,
+          name: p.name,
+          price: p.price || 0,
+          image: p.image_url,
+          category: p.category
+        }));
+        setDbProducts(mapped);
+      }
+    }
+    fetchProducts();
+  }, []);
+
+  const allProducts = [...dbProducts, ...staticProducts];
 
   const filteredProducts = activeCategory === "All" 
     ? allProducts 
