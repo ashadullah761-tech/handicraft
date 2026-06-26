@@ -63,8 +63,17 @@ export default function AdminDashboard() {
               </div>
               <div>
                 <p className="text-sm font-medium text-gray-500">{stat.name}</p>
-                {loading ? (
+                {loading && stat.name !== 'Total Visits' ? (
                   <div className="h-8 w-16 bg-gray-200 animate-pulse rounded mt-1"></div>
+                ) : stat.name === 'Total Visits' ? (
+                  <a 
+                    href="https://analytics.google.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block mt-1 px-3 py-1 bg-emerald-50 text-emerald-700 text-sm font-bold rounded border border-emerald-200 hover:bg-emerald-100 transition-colors"
+                  >
+                    {stat.value} ↗
+                  </a>
                 ) : (
                   <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
                 )}
