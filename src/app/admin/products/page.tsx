@@ -87,20 +87,19 @@ export default function ProductsPage() {
               <tr>
                 <th className="px-6 py-3 text-sm font-semibold text-gray-600">Product</th>
                 <th className="px-6 py-3 text-sm font-semibold text-gray-600">Category</th>
-                <th className="px-6 py-3 text-sm font-semibold text-gray-600">Price</th>
                 <th className="px-6 py-3 text-sm font-semibold text-gray-600 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {loading ? (
                 <tr>
-                  <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
+                  <td colSpan={3} className="px-6 py-8 text-center text-gray-500">
                     Loading products...
                   </td>
                 </tr>
               ) : filteredProducts.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
+                  <td colSpan={3} className="px-6 py-8 text-center text-gray-500">
                     No products found.
                   </td>
                 </tr>
@@ -121,7 +120,6 @@ export default function ProductsPage() {
                       </div>
                     </td>
                     <td className="px-6 py-4 text-gray-600">{product.category}</td>
-                    <td className="px-6 py-4 text-gray-900 font-medium">₹{product.price}</td>
                     <td className="px-6 py-4 text-right">
                       <button
                         onClick={() => handleDelete(product.id, product.image_url)}
