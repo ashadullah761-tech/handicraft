@@ -23,7 +23,7 @@ const staticProducts = [
   { id: `chair-1`, name: `Comfort Cushioned Chair`, price: 189.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair" },
   { id: `chair-2`, name: `Classic Slatted Chair`, price: 179.00, image: `/images/chair-2.jpg?v=2`, category: "Wooden Chair" },
   { id: `chair-3`, name: `Wooden Wheel Rocking Chair`, price: 219.00, image: `/images/chair-3.jpg?v=2`, category: "Wooden Chair" },
-  { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-4.jpg?v=2`, category: "Wooden Chair" },
+  { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair" },
 ];
 
 const categories = ["Wooden Diwan", "Wooden Swing", "Coffee Table", "Wooden Chair"];
