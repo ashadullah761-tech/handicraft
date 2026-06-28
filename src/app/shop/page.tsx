@@ -95,7 +95,7 @@ export default function Shop() {
               key={product.id}
               className="group flex flex-col bg-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
             >
-              <Link href={`/product/${product.id}`} className="relative aspect-[4/5] overflow-hidden bg-gray-200 p-4 border-b border-gray-50">
+              <Link href={`/product/${product.id}`} className="relative aspect-[5/4] overflow-hidden bg-gray-200 border-b border-gray-50 block">
                 <Image 
                   src={product.image}
                   alt={product.name}
@@ -104,8 +104,8 @@ export default function Shop() {
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-4 right-4 bg-[#2d3748] px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm z-10">
-                  {product.category}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                  <h3 className="text-white font-bold text-center">{product.category}</h3>
                 </div>
               </Link>
               <div className="p-6 flex-grow flex flex-col bg-gray-200">
