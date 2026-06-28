@@ -26,10 +26,10 @@ const staticProducts = [
   { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair" },
 ];
 
-const categories = ["Wooden Diwan", "Wooden Swing", "Coffee Table", "Wooden Chair"];
+const categories = ["All", "Wooden Diwan", "Wooden Swing", "Coffee Table", "Wooden Chair"];
 
 export default function Shop() {
-  const [activeCategory, setActiveCategory] = useState("Wooden Diwan");
+  const [activeCategory, setActiveCategory] = useState("All");
   const [dbProducts, setDbProducts] = useState<any[]>([]);
 
   useEffect(() => {
@@ -50,9 +50,19 @@ export default function Shop() {
     fetchProducts();
   }, []);
 
-  const allProducts = [...dbProducts, ...staticProducts];
+  const categoryOrder = ['Wooden Diwan', 'Wooden Swing', 'Coffee Table', 'Wooden Chair', 'Others'];
+  
+  const allProducts = [...dbProducts, ...staticProducts].sort((a, b) => {
+    const indexA = categoryOrder.indexOf(a.category);
+    const indexB = categoryOrder.indexOf(b.category);
+    const rankA = indexA === -1 ? 99 : indexA;
+    const rankB = indexB === -1 ? 99 : indexB;
+    return rankA - rankB;
+  });
 
-  const filteredProducts = allProducts.filter(p => p.category === activeCategory);
+  const filteredProducts = activeCategory === "All" 
+    ? allProducts 
+    : allProducts.filter(p => p.category === activeCategory);
 
   return (
     <div className="bg-[#FAFAF9] min-h-screen py-12">
