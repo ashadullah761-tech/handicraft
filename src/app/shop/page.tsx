@@ -102,7 +102,7 @@ export default function Shop() {
                   fill
                   unoptimized={true}
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-contain transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute top-4 right-4 bg-[#2d3748] px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm z-10">
                   {product.category}
