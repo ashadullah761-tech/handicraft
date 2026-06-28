@@ -100,7 +100,7 @@ export default function Shop() {
                   fill
                   unoptimized={true}
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-contain p-4 pb-12 transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
                   <h3 className="text-white font-bold text-center">{product.category}</h3>
