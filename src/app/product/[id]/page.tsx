@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, use } from "react";
-import { createClient } from "@/utils/supabase/client";
+import { useState } from "react";
 import { useCartStore } from "@/store/useCartStore";
 import { useWishlistStore } from "@/store/useWishlistStore";
 import { Minus, Plus, Heart, ShoppingBag, Truck, ShieldCheck, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { use } from "react";
 import { useRouter } from "next/navigation";
 
 const allProducts = [
@@ -33,50 +33,17 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   const resolvedParams = use(params);
   const productId = resolvedParams.id;
   
-  const [product, setProduct] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const product = allProducts.find(p => p.id === productId) || { id: productId, name: "Artisan Product", price: 99.00, image: "https://images.unsplash.com/photo-1582216503940-5a3962d8095b?auto=format&fit=crop&q=80&w=800", category: "Handicraft", description: "Beautifully handcrafted item.", material: "Mixed", stock: 5 };
   
   const [quantity, setQuantity] = useState(1);
   const addItemToCart = useCartStore(state => state.addItem);
   const { items: wishlistItems, addItem: addToWishlist, removeItem: removeFromWishlist } = useWishlistStore();
+  
+  const isWishlisted = wishlistItems.includes(product.id);
+
   const router = useRouter();
 
-  useEffect(() => {
-    async function fetchProduct() {
-      // 1. Check static products first
-      const staticProduct = allProducts.find(p => p.id === productId);
-      if (staticProduct) {
-        setProduct(staticProduct);
-        setLoading(false);
-        return;
-      }
-      
-      // 2. If not found, fetch from Supabase
-      const supabase = createClient();
-      const { data } = await supabase.from('products').select('*').eq('id', productId).single();
-      
-      if (data) {
-        setProduct({
-          id: data.id,
-          name: data.name,
-          price: data.price || 0,
-          image: data.image_url,
-          category: data.category,
-          description: "Premium handcrafted item by Marudhar Export.",
-          material: "Premium Wood",
-          stock: 1
-        });
-      }
-      setLoading(false);
-    }
-    
-    fetchProduct();
-  }, [productId]);
-  
-  const isWishlisted = product ? wishlistItems.includes(product.id) : false;
-
   const handleAddToCart = () => {
-    if (!product) return;
     addItemToCart({
       id: product.id,
       name: product.name,
@@ -88,13 +55,9 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   };
 
   const toggleWishlist = () => {
-    if (!product) return;
     if (isWishlisted) removeFromWishlist(product.id);
     else addToWishlist(product.id);
   };
-
-  if (loading) return <div className="min-h-screen py-32 text-center text-xl font-bold text-gray-500">Loading Product...</div>;
-  if (!product) return <div className="min-h-screen py-32 text-center text-xl font-bold text-gray-500">Product not found.</div>;
 
   return (
     <div className="bg-[#FAFAF9] min-h-screen py-12">

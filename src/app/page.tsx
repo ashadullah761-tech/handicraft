@@ -1,28 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { createClient } from "@/utils/supabase/client";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, X } from "lucide-react";
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [dbProducts, setDbProducts] = useState<any[]>([]);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      const supabase = createClient();
-      const { data } = await supabase.from('products').select('*');
-      if (data) setDbProducts(data);
-    }
-    fetchProducts();
-  }, []);
-
-  const dbDiwans = dbProducts.filter(p => p.category === 'Wooden Diwan');
-  const dbSwings = dbProducts.filter(p => p.category === 'Wooden Swing');
-  const dbCoffeeTables = dbProducts.filter(p => p.category === 'Coffee Table');
-  const dbChairs = dbProducts.filter(p => p.category === 'Wooden Chair');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -79,14 +63,6 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
-              {dbDiwans.map((product) => (
-                <div key={`db-diwan-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`diwan-1-${index}`} onClick={() => setSelectedImage(`/images/top-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -104,14 +80,6 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {dbDiwans.map((product) => (
-                <div key={`db-diwan-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`diwan-2-${index}`} onClick={() => setSelectedImage(`/images/top-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -141,14 +109,6 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
-              {dbSwings.map((product) => (
-                <div key={`db-swing-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`swing-1-${index}`} onClick={() => setSelectedImage(`/images/swing-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -166,14 +126,6 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {dbSwings.map((product) => (
-                <div key={`db-swing-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`swing-2-${index}`} onClick={() => setSelectedImage(`/images/swing-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -203,14 +155,6 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
             <div className="flex gap-6 pr-6">
-              {dbCoffeeTables.map((product) => (
-                <div key={`db-coffee-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4, 5].map((num, index) => (
                 <div key={`coffee-1-${index}`} onClick={() => setSelectedImage(`/images/coffee-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -228,14 +172,6 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {dbCoffeeTables.map((product) => (
-                <div key={`db-coffee-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4, 5].map((num, index) => (
                 <div key={`coffee-2-${index}`} onClick={() => setSelectedImage(`/images/coffee-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -265,14 +201,6 @@ export default function Home() {
         <div className="relative flex overflow-x-hidden group">
           <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
             <div className="flex gap-6 pr-6">
-              {dbChairs.map((product) => (
-                <div key={`db-chair-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`chair-1-${index}`} onClick={() => setSelectedImage(`/images/chair-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
@@ -292,14 +220,6 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-6 pr-6">
-              {dbChairs.map((product) => (
-                <div key={`db-chair-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
               {[1, 2, 3, 4].map((num, index) => (
                 <div key={`chair-2-${index}`} onClick={() => setSelectedImage(`/images/chair-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image 
