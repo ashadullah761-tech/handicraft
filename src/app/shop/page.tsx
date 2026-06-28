@@ -50,7 +50,15 @@ export default function Shop() {
     fetchProducts();
   }, []);
 
-  const allProducts = [...dbProducts, ...staticProducts];
+  const categoryOrder = ['Wooden Diwan', 'Wooden Swing', 'Coffee Table', 'Wooden Chair', 'Others'];
+  
+  const allProducts = [...dbProducts, ...staticProducts].sort((a, b) => {
+    const indexA = categoryOrder.indexOf(a.category);
+    const indexB = categoryOrder.indexOf(b.category);
+    const rankA = indexA === -1 ? 99 : indexA;
+    const rankB = indexB === -1 ? 99 : indexB;
+    return rankA - rankB;
+  });
 
   const filteredProducts = activeCategory === "All" 
     ? allProducts 
