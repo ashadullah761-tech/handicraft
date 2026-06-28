@@ -86,7 +86,7 @@ export default function Shop() {
                   : "bg-gray-200 text-gray-600 hover:bg-gray-100 border border-gray-200"
                 }`}
               >
-                {cat}
+                {cat} {cat === "All" ? `(${allProducts.length})` : `(${allProducts.filter(p => p.category === cat).length})`}
               </button>
             ))}
           </div>
