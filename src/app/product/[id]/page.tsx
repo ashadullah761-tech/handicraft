@@ -63,8 +63,9 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
           image: data.image_url,
           category: data.category,
           description: data.description || "Premium handcrafted item by Marudhar Export.",
-          material: "Premium Wood",
+          material: data.material || "Premium Wood",
           size: data.size || "Standard Size",
+          color: data.color || "Natural Teak Finish",
           stock: 1
         });
       }
@@ -128,11 +129,24 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
               {product.description}
             </p>
 
+            {product.price > 0 && (
+              <div className="text-3xl font-bold text-[#e07a5f] mb-8">
+                ${product.price.toFixed(2)}
+              </div>
+            )}
+
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-4">
                 <span className="text-sm text-gray-500 w-24">Material:</span>
                 <span className="text-[#2d3748] font-medium">{product.material}</span>
               </div>
+              
+              {product.color && (
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-gray-500 w-24">Color:</span>
+                  <span className="text-[#2d3748] font-medium">{product.color}</span>
+                </div>
+              )}
               
               {product.size && (
                 <div className="flex items-center gap-4">

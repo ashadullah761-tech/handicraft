@@ -17,6 +17,9 @@ export default function AddProductPage() {
     customCategory: '',
     description: '',
     size: '',
+    price: '',
+    color: '',
+    material: '',
   })
   const [error, setError] = useState<string | null>(null)
   
@@ -76,11 +79,13 @@ export default function AddProductPage() {
 
       const { error: dbError } = await supabase.from('products').insert({
         name: formData.name,
-        price: 0,
+        price: Number(formData.price) || 0,
         category: finalCategory,
         image_url: publicUrl,
         description: formData.description,
         size: formData.size,
+        color: formData.color,
+        material: formData.material,
       })
 
       if (dbError) throw dbError
@@ -166,6 +171,21 @@ export default function AddProductPage() {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Price ($)
+                </label>
+                <input
+                  type="number"
+                  required
+                  min="0"
+                  step="0.01"
+                  value={formData.price}
+                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                  placeholder="e.g., 299.99"
+                />
+              </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -207,6 +227,34 @@ export default function AddProductPage() {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
                   placeholder="e.g., L 72 x W 36 x H 18 inches"
                 />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Color
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.color}
+                    onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                    placeholder="e.g., Teak Polish"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Material
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.material}
+                    onChange={(e) => setFormData({ ...formData, material: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                    placeholder="e.g., Solid Sheesham Wood"
+                  />
+                </div>
               </div>
 
               <div>
