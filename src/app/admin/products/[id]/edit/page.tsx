@@ -1,0 +1,349 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { createClient } from '@/utils/supabase/client'
+import { ArrowLeft, Upload, Loader2, ImageIcon } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
+
+export default function EditProductPage({ params }: { params: { id: string } }) {
+  const [loading, setLoading] = useState(false)
+  const [fetching, setFetching] = useState(true)
+  const [imageFile, setImageFile] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [existingImageUrl, setExistingImageUrl] = useState<string | null>(null)
+  const [formData, setFormData] = useState({
+    name: '',
+    category: 'Wooden Diwan',
+    customCategory: '',
+    description: '',
+    size: '',
+    price: '',
+    color: '',
+    material: '',
+  })
+  const [error, setError] = useState<string | null>(null)
+  
+  const router = useRouter()
+  const supabase = createClient()
+
+  const categories = [
+    'Wooden Diwan',
+    'Wooden Swing',
+    'Coffee Table',
+    'Wooden Chair',
+    'Others',
+    'Custom Category'
+  ]
+
+  useEffect(() => {
+    async function loadProduct() {
+      setFetching(true)
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .eq('id', params.id)
+        .single()
+      
+      if (error || !data) {
+        setError('Failed to load product')
+        setFetching(false)
+        return
+      }
+
+      const isCustomCategory = !categories.includes(data.category)
+
+      setFormData({
+        name: data.name || '',
+        category: isCustomCategory ? 'Custom Category' : data.category,
+        customCategory: isCustomCategory ? data.category : '',
+        description: data.description || '',
+        size: data.size || '',
+        price: data.price?.toString() || '',
+        color: data.color || '',
+        material: data.material || '',
+      })
+      setImagePreview(data.image_url)
+      setExistingImageUrl(data.image_url)
+      setFetching(false)
+    }
+
+    loadProduct()
+  }, [params.id])
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (file) {
+      setImageFile(file)
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    setLoading(true)
+    setError(null)
+
+    try {
+      let publicUrl = existingImageUrl
+
+      // 1. Upload new image to Storage if changed
+      if (imageFile) {
+        const fileExt = imageFile.name.split('.').pop()
+        const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`
+        const { error: uploadError } = await supabase.storage
+          .from('product-images')
+          .upload(fileName, imageFile)
+
+        if (uploadError) throw uploadError
+
+        // Get new public URL
+        const { data: urlData } = supabase.storage
+          .from('product-images')
+          .getPublicUrl(fileName)
+        
+        publicUrl = urlData.publicUrl
+      }
+
+      // 2. Update Database
+      const finalCategory = formData.category === 'Custom Category' && formData.customCategory.trim() !== '' 
+        ? formData.customCategory.trim() 
+        : formData.category;
+
+      const { error: dbError } = await supabase.from('products')
+        .update({
+          name: formData.name,
+          price: Number(formData.price) || 0,
+          category: finalCategory,
+          image_url: publicUrl,
+          description: formData.description,
+          size: formData.size,
+          color: formData.color,
+          material: formData.material,
+        })
+        .eq('id', params.id)
+
+      if (dbError) throw dbError
+
+      router.push('/admin/products')
+      router.refresh()
+    } catch (err: any) {
+      setError(err.message || 'An error occurred while updating the product')
+      setLoading(false)
+    }
+  }
+
+  if (fetching) {
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+      </div>
+    )
+  }
+
+  return (
+    <div className="max-w-3xl mx-auto space-y-6">
+      <div className="flex items-center gap-4">
+        <Link
+          href="/admin/products"
+          className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+        >
+          <ArrowLeft className="w-6 h-6 text-gray-600" />
+        </Link>
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Edit Product</h1>
+          <p className="text-gray-600 mt-1">Update existing item details.</p>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {error && (
+            <div className="p-4 bg-red-50 text-red-700 rounded-lg text-sm">
+              {error}
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Image Upload Area */}
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Product Image
+              </label>
+              <div 
+                className="relative border-2 border-dashed border-gray-300 rounded-xl hover:border-blue-500 transition-colors bg-gray-50 flex flex-col items-center justify-center cursor-pointer overflow-hidden"
+                style={{ aspectRatio: '1/1' }}
+              >
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                />
+                
+                {imagePreview ? (
+                  <Image
+                    src={imagePreview}
+                    alt="Preview"
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center text-gray-500 p-4 text-center">
+                    <ImageIcon className="w-12 h-12 mb-2 text-gray-400" />
+                    <p className="text-sm font-medium">Click to change image</p>
+                    <p className="text-xs mt-1">Leave empty to keep existing image</p>
+                  </div>
+                )}
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Leave empty to keep the current image.</p>
+            </div>
+
+            {/* Form Fields */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Product Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                  placeholder="e.g., Premium Royal Diwan"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Price ($)
+                </label>
+                <input
+                  type="number"
+                  required
+                  min="0"
+                  step="0.01"
+                  value={formData.price}
+                  onChange={(e) => setFormData({ ...formData, price: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                  placeholder="e.g., 299.99"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Category
+                </label>
+                <div className="space-y-3">
+                  <select
+                    required
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white transition-shadow"
+                  >
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                  
+                  {formData.category === 'Custom Category' && (
+                    <input
+                      type="text"
+                      required
+                      value={formData.customCategory}
+                      onChange={(e) => setFormData({ ...formData, customCategory: e.target.value })}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                      placeholder="Enter your custom category name"
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Size (Dimensions)
+                </label>
+                <input
+                  type="text"
+                  value={formData.size}
+                  onChange={(e) => setFormData({ ...formData, size: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                  placeholder="e.g., L 72 x W 36 x H 18 inches"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Color
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.color}
+                    onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                    placeholder="e.g., Teak Polish"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Material
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.material}
+                    onChange={(e) => setFormData({ ...formData, material: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                    placeholder="e.g., Solid Sheesham Wood"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Description
+                </label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none"
+                  placeholder="Write a short description about this product..."
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-4 border-t border-gray-100 flex justify-end">
+            <button
+              type="submit"
+              disabled={loading}
+              className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:opacity-50"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Updating...
+                </>
+              ) : (
+                <>
+                  <Upload className="w-5 h-5" />
+                  Update Product
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
