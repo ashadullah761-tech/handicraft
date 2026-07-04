@@ -6,8 +6,12 @@ import { createClient } from '@/utils/supabase/client'
 import { ArrowLeft, Upload, Loader2, ImageIcon } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { use } from 'react'
 
-export default function EditProductPage({ params }: { params: { id: string } }) {
+export default function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = use(params)
+  const productId = resolvedParams.id
+
   const [loading, setLoading] = useState(false)
   const [fetching, setFetching] = useState(true)
   const [imageFile, setImageFile] = useState<File | null>(null)
@@ -43,7 +47,7 @@ export default function EditProductPage({ params }: { params: { id: string } }) 
       const { data, error } = await supabase
         .from('products')
         .select('*')
-        .eq('id', params.id)
+        .eq('id', productId)
         .single()
       
       if (error || !data) {
@@ -70,7 +74,7 @@ export default function EditProductPage({ params }: { params: { id: string } }) 
     }
 
     loadProduct()
-  }, [params.id])
+  }, [productId])
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -127,7 +131,7 @@ export default function EditProductPage({ params }: { params: { id: string } }) 
           color: formData.color,
           material: formData.material,
         })
-        .eq('id', params.id)
+        .eq('id', productId)
 
       if (dbError) throw dbError
 
