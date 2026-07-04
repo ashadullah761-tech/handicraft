@@ -26,8 +26,6 @@ const staticProducts = [
   { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair" },
 ];
 
-const categories = ["All", "Wooden Diwan", "Wooden Swing", "Coffee Table", "Wooden Chair"];
-
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [dbProducts, setDbProducts] = useState<any[]>([]);
@@ -60,6 +58,16 @@ export default function Shop() {
     return rankA - rankB;
   });
 
+  const uniqueCategories = Array.from(new Set(allProducts.map(p => p.category)));
+  // Ensure "All" is first, followed by our standard ordered categories, then any custom ones
+  const dynamicCategories = ["All", ...uniqueCategories.sort((a, b) => {
+    const indexA = categoryOrder.indexOf(a);
+    const indexB = categoryOrder.indexOf(b);
+    const rankA = indexA === -1 ? 99 : indexA;
+    const rankB = indexB === -1 ? 99 : indexB;
+    return rankA - rankB;
+  })];
+
   const filteredProducts = activeCategory === "All" 
     ? allProducts 
     : allProducts.filter(p => p.category === activeCategory);
@@ -76,7 +84,7 @@ export default function Shop() {
         {/* Filters */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 pb-4 border-b border-gray-200 gap-4">
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 hide-scrollbar">
-            {categories.map((cat) => (
+            {dynamicCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}

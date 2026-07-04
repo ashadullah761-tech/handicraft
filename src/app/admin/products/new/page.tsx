@@ -14,6 +14,9 @@ export default function AddProductPage() {
   const [formData, setFormData] = useState({
     name: '',
     category: 'Wooden Diwan',
+    customCategory: '',
+    description: '',
+    size: '',
   })
   const [error, setError] = useState<string | null>(null)
   
@@ -25,7 +28,8 @@ export default function AddProductPage() {
     'Wooden Swing',
     'Coffee Table',
     'Wooden Chair',
-    'Others'
+    'Others',
+    'Custom Category'
   ]
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,11 +70,17 @@ export default function AddProductPage() {
         .getPublicUrl(fileName)
 
       // 3. Insert into Database
+      const finalCategory = formData.category === 'Custom Category' && formData.customCategory.trim() !== '' 
+        ? formData.customCategory.trim() 
+        : formData.category;
+
       const { error: dbError } = await supabase.from('products').insert({
         name: formData.name,
         price: 0,
-        category: formData.category,
+        category: finalCategory,
         image_url: publicUrl,
+        description: formData.description,
+        size: formData.size,
       })
 
       if (dbError) throw dbError
@@ -161,16 +171,56 @@ export default function AddProductPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Category
                 </label>
-                <select
+                <div className="space-y-3">
+                  <select
+                    required
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white transition-shadow"
+                  >
+                    {categories.map(cat => (
+                      <option key={cat} value={cat}>{cat}</option>
+                    ))}
+                  </select>
+                  
+                  {formData.category === 'Custom Category' && (
+                    <input
+                      type="text"
+                      required
+                      value={formData.customCategory}
+                      onChange={(e) => setFormData({ ...formData, customCategory: e.target.value })}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                      placeholder="Enter your custom category name"
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Size (Dimensions)
+                </label>
+                <input
+                  type="text"
+                  value={formData.size}
+                  onChange={(e) => setFormData({ ...formData, size: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
+                  placeholder="e.g., L 72 x W 36 x H 18 inches"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Description
+                </label>
+                <textarea
                   required
-                  value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white transition-shadow"
-                >
-                  {categories.map(cat => (
-                    <option key={cat} value={cat}>{cat}</option>
-                  ))}
-                </select>
+                  rows={4}
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow resize-none"
+                  placeholder="Write a short description about this product..."
+                />
               </div>
             </div>
           </div>

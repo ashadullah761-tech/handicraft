@@ -62,8 +62,9 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
           price: data.price || 0,
           image: data.image_url,
           category: data.category,
-          description: "Premium handcrafted item by Marudhar Export.",
+          description: data.description || "Premium handcrafted item by Marudhar Export.",
           material: "Premium Wood",
+          size: data.size || "Standard Size",
           stock: 1
         });
       }
@@ -132,6 +133,13 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <span className="text-sm text-gray-500 w-24">Material:</span>
                 <span className="text-[#2d3748] font-medium">{product.material}</span>
               </div>
+              
+              {product.size && (
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-gray-500 w-24">Dimensions:</span>
+                  <span className="text-[#2d3748] font-medium">{product.size}</span>
+                </div>
+              )}
             </div>
 
             <div className="border-t border-gray-200 py-8 mb-8">
