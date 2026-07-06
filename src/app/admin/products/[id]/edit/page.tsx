@@ -197,7 +197,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
                     src={imagePreview}
                     alt="Preview"
                     fill
-                    className="object-cover"
+                    className="object-contain p-2"
                   />
                 ) : (
                   <div className="flex flex-col items-center text-gray-500 p-4 text-center">
