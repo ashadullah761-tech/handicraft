@@ -9,26 +9,6 @@ import { Minus, Plus, Heart, ShoppingBag, Truck, ShieldCheck, ArrowLeft } from "
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const allProducts = [
-  { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg?v=2`, category: "Wooden Diwan", description: "Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.", material: "Solid Teak Wood", stock: 5 },
-  { id: `diwan-2`, name: `Carved Wooden Diwan`, price: 349.00, image: `/images/top-2.jpg?v=2`, category: "Wooden Diwan", description: "Elegant carved wooden diwan showcasing traditional craftsmanship and unparalleled durability.", material: "Solid Teak Wood", stock: 4 },
-  { id: `diwan-3`, name: `Royal Pattern Diwan`, price: 399.00, image: `/images/top-3.jpg?v=2`, category: "Wooden Diwan", description: "A luxurious diwan featuring intricate royal patterns. Perfect for a majestic living room.", material: "Rosewood", stock: 2 },
-  { id: `diwan-4`, name: `Classic Traditional Diwan`, price: 289.00, image: `/images/top-4.jpg?v=2`, category: "Wooden Diwan", description: "A timeless traditional diwan that blends heritage design with modern comfort.", material: "Sheesham Wood", stock: 6 },
-  { id: `swing-1`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-1.jpg?v=2`, category: "Wooden Swing", description: "Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.", material: "Rosewood", stock: 2 },
-  { id: `swing-2`, name: `Carved Indoor Swing`, price: 549.00, image: `/images/swing-2.jpg?v=2`, category: "Wooden Swing", description: "A majestic indoor swing with detailed floral carvings to elevate your home decor.", material: "Teak Wood", stock: 3 },
-  { id: `swing-3`, name: `Premium Teak Swing`, price: 699.00, image: `/images/swing-3.jpg?v=2`, category: "Wooden Swing", description: "A heavy-duty premium teak wood swing with brass chains. Built to last generations.", material: "Teak Wood", stock: 1 },
-  { id: `swing-4`, name: `Antique Pattern Jhula`, price: 599.00, image: `/images/swing-4.jpg?v=2`, category: "Wooden Swing", description: "An antique style wooden jhula featuring rich dark polish and classic patterns.", material: "Sheesham Wood", stock: 2 },
-  { id: `coffee-1`, name: `Carved Rectangle Table`, price: 189.00, image: `/images/coffee-1.jpg?v=2`, category: "Coffee Table", description: "A beautifully carved rectangular coffee table with intricate traditional designs.", material: "Mango Wood", stock: 4 },
-  { id: `coffee-2`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-2.jpg?v=2`, category: "Coffee Table", description: "A compact square table featuring detailed floral carvings. Perfect as a center table.", material: "Sheesham Wood", stock: 8 },
-  { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg?v=2`, category: "Coffee Table", description: "A versatile long wooden table suitable for your living room or study.", material: "Teak Wood", stock: 6 },
-  { id: `coffee-4`, name: `Round Pedestal Table`, price: 159.00, image: `/images/coffee-4.jpg?v=2`, category: "Coffee Table", description: "A classic round table with an elegant pedestal base, perfect for cozy corners.", material: "Rosewood", stock: 3 },
-  { id: `coffee-5`, name: `Carved Glass Top Table Base`, price: 179.00, image: `/images/coffee-5.jpg?v=2`, category: "Coffee Table", description: "An intricately carved table base designed to support a glass top, featuring traditional craftsmanship.", material: "Mango Wood", stock: 5 },
-  { id: `chair-1`, name: `Comfort Cushioned Chair`, price: 189.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair", description: "Elegant cushioned wooden chair offering premium comfort and a timeless design.", material: "Solid Wood", stock: 10 },
-  { id: `chair-2`, name: `Classic Slatted Chair`, price: 179.00, image: `/images/chair-2.jpg?v=2`, category: "Wooden Chair", description: "A traditional wooden chair with a classic slatted back design for versatile use.", material: "Sheesham Wood", stock: 5 },
-  { id: `chair-3`, name: `Wooden Wheel Rocking Chair`, price: 219.00, image: `/images/chair-3.jpg?v=2`, category: "Wooden Chair", description: "A unique rocking chair featuring a cartwheel design on the sides. Perfectly handcrafted.", material: "Teak Wood", stock: 3 },
-  { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-4.jpg?v=2`, category: "Wooden Chair", description: "Premium wheel rocking chair with detailed carvings on the backrest. A true masterpiece.", material: "Rosewood", stock: 2 },
-];
-
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
   const productId = resolvedParams.id;
@@ -43,15 +23,6 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
   useEffect(() => {
     async function fetchProduct() {
-      // 1. Check static products first
-      const staticProduct = allProducts.find(p => p.id === productId);
-      if (staticProduct) {
-        setProduct(staticProduct);
-        setLoading(false);
-        return;
-      }
-      
-      // 2. If not found, fetch from Supabase
       const supabase = createClient();
       const { data } = await supabase.from('products').select('*').eq('id', productId).single();
       

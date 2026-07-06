@@ -5,26 +5,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 
-// Generate products from the images we have in the public folder
-const staticProducts = [
-  { id: `diwan-1`, name: `Premium Wooden Diwan`, price: 299.00, image: `/images/top-1.jpg?v=2`, category: "Wooden Diwan" },
-  { id: `diwan-2`, name: `Carved Wooden Diwan`, price: 349.00, image: `/images/top-2.jpg?v=2`, category: "Wooden Diwan" },
-  { id: `diwan-3`, name: `Royal Pattern Diwan`, price: 399.00, image: `/images/top-3.jpg?v=2`, category: "Wooden Diwan" },
-  { id: `diwan-4`, name: `Classic Traditional Diwan`, price: 289.00, image: `/images/top-4.jpg?v=2`, category: "Wooden Diwan" },
-  { id: `swing-1`, name: `Royal Wooden Swing`, price: 499.00, image: `/images/swing-1.jpg?v=2`, category: "Wooden Swing" },
-  { id: `swing-2`, name: `Carved Indoor Swing`, price: 549.00, image: `/images/swing-2.jpg?v=2`, category: "Wooden Swing" },
-  { id: `swing-3`, name: `Premium Teak Swing`, price: 699.00, image: `/images/swing-3.jpg?v=2`, category: "Wooden Swing" },
-  { id: `swing-4`, name: `Antique Pattern Jhula`, price: 599.00, image: `/images/swing-4.jpg?v=2`, category: "Wooden Swing" },
-  { id: `coffee-1`, name: `Carved Rectangle Table`, price: 189.00, image: `/images/coffee-1.jpg?v=2`, category: "Coffee Table" },
-  { id: `coffee-2`, name: `Square Carved Table`, price: 149.00, image: `/images/coffee-2.jpg?v=2`, category: "Coffee Table" },
-  { id: `coffee-3`, name: `Classic Long Table`, price: 129.00, image: `/images/coffee-3.jpg?v=2`, category: "Coffee Table" },
-  { id: `coffee-4`, name: `Round Pedestal Table`, price: 159.00, image: `/images/coffee-4.jpg?v=2`, category: "Coffee Table" },
-  { id: `coffee-5`, name: `Carved Glass Top Table Base`, price: 179.00, image: `/images/coffee-5.jpg?v=2`, category: "Coffee Table" },
-  { id: `chair-1`, name: `Comfort Cushioned Chair`, price: 189.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair" },
-  { id: `chair-2`, name: `Classic Slatted Chair`, price: 179.00, image: `/images/chair-2.jpg?v=2`, category: "Wooden Chair" },
-  { id: `chair-3`, name: `Wooden Wheel Rocking Chair`, price: 219.00, image: `/images/chair-3.jpg?v=2`, category: "Wooden Chair" },
-  { id: `chair-4`, name: `Carved Wheel Rocking Chair`, price: 239.00, image: `/images/chair-1.jpg?v=2`, category: "Wooden Chair" },
-];
 
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -50,7 +30,7 @@ export default function Shop() {
 
   const categoryOrder = ['Wooden Diwan', 'Wooden Swing', 'Coffee Table', 'Wooden Chair', 'Others'];
   
-  const allProducts = [...dbProducts, ...staticProducts].sort((a, b) => {
+  const allProducts = [...dbProducts].sort((a, b) => {
     const indexA = categoryOrder.indexOf(a.category);
     const indexB = categoryOrder.indexOf(b.category);
     const rankA = indexA === -1 ? 99 : indexA;
