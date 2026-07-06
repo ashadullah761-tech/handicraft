@@ -110,10 +110,10 @@ export default function ProductsPage() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-12 h-12 rounded-md overflow-hidden bg-gray-100">
                           <Image
-                            src={product.image_url}
+                            src={product.image_url ? product.image_url.split('?')[0] : ''}
                             alt={product.name}
                             fill
-                            className="object-cover"
+                            className="object-contain p-1"
                           />
                         </div>
                         <span className="font-medium text-gray-900">{product.name}</span>
