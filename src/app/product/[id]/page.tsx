@@ -135,12 +135,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <span className="text-[#2d3748] font-medium">{product.material}</span>
               </div>
               
-              {product.color && (
-                <div className="flex items-center gap-4">
-                  <span className="text-sm text-gray-500 w-24">Color:</span>
-                  <span className="text-[#2d3748] font-medium">{product.color}</span>
-                </div>
-              )}
+
               
               {product.size && (
                 <div className="flex items-center gap-4">

@@ -1,0 +1,18 @@
+INSERT INTO products (name, price, image_url, category, description, material, size) VALUES
+('Premium Wooden Diwan', 299, '/images/top-1.jpg?v=2', 'Wooden Diwan', 'Experience royal comfort with our handcrafted premium wooden diwan. Carved from high-quality solid wood.', 'Solid Teak Wood', 'Standard Size'),
+('Carved Wooden Diwan', 349, '/images/top-2.jpg?v=2', 'Wooden Diwan', 'Elegant carved wooden diwan showcasing traditional craftsmanship and unparalleled durability.', 'Solid Teak Wood', 'Standard Size'),
+('Royal Pattern Diwan', 399, '/images/top-3.jpg?v=2', 'Wooden Diwan', 'A luxurious diwan featuring intricate royal patterns. Perfect for a majestic living room.', 'Rosewood', 'Standard Size'),
+('Classic Traditional Diwan', 289, '/images/top-4.jpg?v=2', 'Wooden Diwan', 'A timeless traditional diwan that blends heritage design with modern comfort.', 'Sheesham Wood', 'Standard Size'),
+('Royal Wooden Swing', 499, '/images/swing-1.jpg?v=2', 'Wooden Swing', 'Traditional Indian Jhula meticulously carved by master artisans. Perfect for your living room or veranda.', 'Rosewood', 'Standard Size'),
+('Carved Indoor Swing', 549, '/images/swing-2.jpg?v=2', 'Wooden Swing', 'A majestic indoor swing with detailed floral carvings to elevate your home decor.', 'Teak Wood', 'Standard Size'),
+('Premium Teak Swing', 699, '/images/swing-3.jpg?v=2', 'Wooden Swing', 'A heavy-duty premium teak wood swing with brass chains. Built to last generations.', 'Teak Wood', 'Standard Size'),
+('Antique Pattern Jhula', 599, '/images/swing-4.jpg?v=2', 'Wooden Swing', 'An antique style wooden jhula featuring rich dark polish and classic patterns.', 'Sheesham Wood', 'Standard Size'),
+('Carved Rectangle Table', 189, '/images/coffee-1.jpg?v=2', 'Coffee Table', 'A beautifully carved rectangular coffee table with intricate traditional designs.', 'Mango Wood', 'Standard Size'),
+('Square Carved Table', 149, '/images/coffee-2.jpg?v=2', 'Coffee Table', 'A compact square table featuring detailed floral carvings. Perfect as a center table.', 'Sheesham Wood', 'Standard Size'),
+('Classic Long Table', 129, '/images/coffee-3.jpg?v=2', 'Coffee Table', 'A versatile long wooden table suitable for your living room or study.', 'Teak Wood', 'Standard Size'),
+('Round Pedestal Table', 159, '/images/coffee-4.jpg?v=2', 'Coffee Table', 'A classic round table with an elegant pedestal base, perfect for cozy corners.', 'Rosewood', 'Standard Size'),
+('Carved Glass Top Table Base', 179, '/images/coffee-5.jpg?v=2', 'Coffee Table', 'An intricately carved table base designed to support a glass top, featuring traditional craftsmanship.', 'Mango Wood', 'Standard Size'),
+('Comfort Cushioned Chair', 189, '/images/chair-1.jpg?v=2', 'Wooden Chair', 'Elegant cushioned wooden chair offering premium comfort and a timeless design.', 'Solid Wood', 'Standard Size'),
+('Classic Slatted Chair', 179, '/images/chair-2.jpg?v=2', 'Wooden Chair', 'A traditional wooden chair with a classic slatted back design for versatile use.', 'Sheesham Wood', 'Standard Size'),
+('Wooden Wheel Rocking Chair', 219, '/images/chair-3.jpg?v=2', 'Wooden Chair', 'A unique rocking chair featuring a cartwheel design on the sides. Perfectly handcrafted.', 'Teak Wood', 'Standard Size'),
+('Carved Wheel Rocking Chair', 239, '/images/chair-4.jpg?v=2', 'Wooden Chair', 'Premium wheel rocking chair with detailed carvings on the backrest. A true masterpiece.', 'Rosewood', 'Standard Size');

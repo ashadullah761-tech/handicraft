@@ -68,7 +68,8 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
         color: data.color || '',
         material: data.material || '',
       })
-      setImagePreview(data.image_url)
+      const cleanImageUrl = data.image_url ? data.image_url.split('?')[0] : null;
+      setImagePreview(cleanImageUrl)
       setExistingImageUrl(data.image_url)
       setFetching(false)
     }
@@ -283,20 +284,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Color
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.color}
-                    onChange={(e) => setFormData({ ...formData, color: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
-                    placeholder="e.g., Teak Polish"
-                  />
-                </div>
-
+              <div className="grid grid-cols-1 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Material
