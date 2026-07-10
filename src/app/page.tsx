@@ -19,10 +19,19 @@ export default function Home() {
     fetchProducts();
   }, []);
 
-  const dbDiwans = dbProducts.filter(p => p.category === 'Wooden Diwan');
-  const dbSwings = dbProducts.filter(p => p.category === 'Wooden Swing');
-  const dbCoffeeTables = dbProducts.filter(p => p.category === 'Coffee Table');
-  const dbChairs = dbProducts.filter(p => p.category === 'Wooden Chair');
+  const dummyProductNames = [
+    "Premium Wooden Diwan", "Royal Pattern Diwan", "Classic Traditional Diwan", "Carved Wooden Diwan",
+    "Wooden Swing", "Royal Wooden Swing", "Carved Indoor Swing", "Premium Teak Swing", "Antique Pattern Jhula",
+    "Carved Rectangle Table", "Square Carved Table", "Classic Long Table", "Round Pedestal Table", "Carved Glass Top Table Base",
+    "Comfort Cushioned Chair", "Wooden Wheel Rocking Chair", "Carved Wheel Rocking Chair", "Classic Slatted Chair"
+  ];
+
+  const validProducts = dbProducts.filter(p => !dummyProductNames.includes(p.name));
+
+  const dbDiwans = validProducts.filter(p => p.category === 'Wooden Diwan');
+  const dbSwings = validProducts.filter(p => p.category === 'Wooden Swing');
+  const dbCoffeeTables = validProducts.filter(p => p.category === 'Coffee Table');
+  const dbChairs = validProducts.filter(p => p.category === 'Wooden Chair');
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -76,58 +85,18 @@ export default function Home() {
           <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Our Premium Collection</h2>
           <p className="text-[#e07a5f] mt-2 font-medium">Finest Wooden Diwans</p>
         </div>
-        <div className="relative flex overflow-x-hidden group">
-          <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
-            <div className="flex gap-6 pr-6">
-              {dbDiwans.map((product) => (
-                <div key={`db-diwan-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
+        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+          <div className="flex gap-6 px-4 md:px-0">
+            {dbDiwans.map((product) => (
+              <div key={`db-diwan-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                <div className="relative w-full h-40 bg-white">
+                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
                 </div>
-              ))}
-              {[1, 2, 3, 4].map((num, index) => (
-                <div key={`diwan-1-${index}`} onClick={() => setSelectedImage(`/images/top-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/top-${num}.jpg?v=2`} 
-                    alt="Wooden Diwan"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Wooden Diwan</h3>
-                  </div>
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                  <h3 className="text-white font-bold text-center">{product.category}</h3>
                 </div>
-              ))}
-            </div>
-            <div className="flex gap-6 pr-6">
-              {dbDiwans.map((product) => (
-                <div key={`db-diwan-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
-              {[1, 2, 3, 4].map((num, index) => (
-                <div key={`diwan-2-${index}`} onClick={() => setSelectedImage(`/images/top-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/top-${num}.jpg?v=2`} 
-                    alt="Wooden Diwan"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Wooden Diwan</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -138,58 +107,18 @@ export default function Home() {
           <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Royal Heritage</h2>
           <p className="text-[#e07a5f] mt-2 font-medium">Traditional Wooden Swings (Jhula)</p>
         </div>
-        <div className="relative flex overflow-x-hidden group">
-          <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
-            <div className="flex gap-6 pr-6">
-              {dbSwings.map((product) => (
-                <div key={`db-swing-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
+        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+          <div className="flex gap-6 px-4 md:px-0">
+            {dbSwings.map((product) => (
+              <div key={`db-swing-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                <div className="relative w-full h-40 bg-white">
+                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
                 </div>
-              ))}
-              {[1, 2, 3, 4].map((num, index) => (
-                <div key={`swing-1-${index}`} onClick={() => setSelectedImage(`/images/swing-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/swing-${num}.jpg?v=2`} 
-                    alt="Wooden Swing"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Wooden Swing</h3>
-                  </div>
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                  <h3 className="text-white font-bold text-center">{product.category}</h3>
                 </div>
-              ))}
-            </div>
-            <div className="flex gap-6 pr-6">
-              {dbSwings.map((product) => (
-                <div key={`db-swing-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
-              {[1, 2, 3, 4].map((num, index) => (
-                <div key={`swing-2-${index}`} onClick={() => setSelectedImage(`/images/swing-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/swing-${num}.jpg?v=2`} 
-                    alt="Wooden Swing"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Wooden Swing</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -200,58 +129,18 @@ export default function Home() {
           <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Elegant Living</h2>
           <p className="text-[#e07a5f] mt-2 font-medium">Premium Wooden Coffee Tables</p>
         </div>
-        <div className="relative flex overflow-x-hidden group">
-          <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max">
-            <div className="flex gap-6 pr-6">
-              {dbCoffeeTables.map((product) => (
-                <div key={`db-coffee-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
+        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+          <div className="flex gap-6 px-4 md:px-0">
+            {dbCoffeeTables.map((product) => (
+              <div key={`db-coffee-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                <div className="relative w-full h-40 bg-white">
+                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
                 </div>
-              ))}
-              {[1, 2, 3, 4, 5].map((num, index) => (
-                <div key={`coffee-1-${index}`} onClick={() => setSelectedImage(`/images/coffee-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/coffee-${num}.jpg?v=2`} 
-                    alt="Wooden Coffee Table"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Coffee Table</h3>
-                  </div>
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                  <h3 className="text-white font-bold text-center">{product.category}</h3>
                 </div>
-              ))}
-            </div>
-            <div className="flex gap-6 pr-6">
-              {dbCoffeeTables.map((product) => (
-                <div key={`db-coffee-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
-              {[1, 2, 3, 4, 5].map((num, index) => (
-                <div key={`coffee-2-${index}`} onClick={() => setSelectedImage(`/images/coffee-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/coffee-${num}.jpg?v=2`} 
-                    alt="Wooden Coffee Table"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">Coffee Table</h3>
-                  </div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -262,62 +151,18 @@ export default function Home() {
           <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Classic Comfort</h2>
           <p className="text-[#e07a5f] mt-2 font-medium">Handcrafted Wooden Chairs</p>
         </div>
-        <div className="relative flex overflow-x-hidden group">
-          <div className="flex animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] w-max" style={{ animationDirection: 'reverse' }}>
-            <div className="flex gap-6 pr-6">
-              {dbChairs.map((product) => (
-                <div key={`db-chair-1-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
+        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+          <div className="flex gap-6 px-4 md:px-0">
+            {dbChairs.map((product) => (
+              <div key={`db-chair-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                <div className="relative w-full h-40 bg-white">
+                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
                 </div>
-              ))}
-              {[1, 2, 3, 4].map((num, index) => (
-                <div key={`chair-1-${index}`} onClick={() => setSelectedImage(`/images/chair-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/chair-${num}.jpg?v=2`} 
-                    alt="Wooden Chair"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  {num !== 4 && (
-                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <h3 className="text-white font-bold text-center">Wooden Chair</h3>
-                    </div>
-                  )}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                  <h3 className="text-white font-bold text-center">{product.category}</h3>
                 </div>
-              ))}
-            </div>
-            <div className="flex gap-6 pr-6">
-              {dbChairs.map((product) => (
-                <div key={`db-chair-2-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-cover bg-gray-200" />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <h3 className="text-white font-bold text-center">{product.category}</h3>
-                  </div>
-                </div>
-              ))}
-              {[1, 2, 3, 4].map((num, index) => (
-                <div key={`chair-2-${index}`} onClick={() => setSelectedImage(`/images/chair-${num}.jpg?v=2`)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer">
-                  <Image 
-                    src={`/images/chair-${num}.jpg?v=2`} 
-                    alt="Wooden Chair"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    unoptimized={true}
-                    className="object-contain bg-gray-200 p-2"
-                  />
-                  {num !== 4 && (
-                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <h3 className="text-white font-bold text-center">Wooden Chair</h3>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

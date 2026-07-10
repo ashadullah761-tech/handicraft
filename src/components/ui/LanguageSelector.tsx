@@ -128,13 +128,23 @@ export function LanguageSelector() {
   }, []);
 
   const changeLanguage = (code: string) => {
-    // Set the google translate cookie
-    // Format is googtrans=/en/target_language
-    document.cookie = `googtrans=/en/${code}; path=/;`;
-    document.cookie = `googtrans=/en/${code}; path=/; domain=${window.location.hostname};`;
+    setCurrentLang(code);
     
-    // Reload page to apply translation via Google Translate script
-    window.location.reload();
+    // Find the hidden Google Translate select element
+    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    
+    if (selectElement) {
+      // Set the value and trigger the change event
+      selectElement.value = code;
+      selectElement.dispatchEvent(new Event('change'));
+    } else {
+      // Fallback if the Google Translate script hasn't loaded yet
+      document.cookie = `googtrans=/en/${code}; path=/;`;
+      document.cookie = `googtrans=/en/${code}; path=/; domain=${window.location.hostname};`;
+      window.location.reload();
+    }
+    
+    setIsOpen(false); // Close dropdown
   };
 
   const filteredLanguages = languages.filter(
@@ -144,7 +154,7 @@ export function LanguageSelector() {
   );
 
   return (
-    <div className="relative inline-block" ref={dropdownRef}>
+    <div className="relative inline-block notranslate" ref={dropdownRef}>
       {/* The Navbar Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
