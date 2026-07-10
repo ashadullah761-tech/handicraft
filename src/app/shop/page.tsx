@@ -23,15 +23,7 @@ export default function Shop() {
           category: p.category
         }));
 
-        const dummyProductNames = [
-          "Premium Wooden Diwan", "Royal Pattern Diwan", "Classic Traditional Diwan", "Carved Wooden Diwan",
-          "Wooden Swing", "Royal Wooden Swing", "Carved Indoor Swing", "Premium Teak Swing", "Antique Pattern Jhula",
-          "Carved Rectangle Table", "Square Carved Table", "Classic Long Table", "Round Pedestal Table", "Carved Glass Top Table Base",
-          "Comfort Cushioned Chair", "Wooden Wheel Rocking Chair", "Carved Wheel Rocking Chair", "Classic Slatted Chair"
-        ];
-
-        const validProducts = mapped.filter(p => !dummyProductNames.includes(p.name));
-        setDbProducts(validProducts);
+        setDbProducts(mapped);
       }
     }
     fetchProducts();

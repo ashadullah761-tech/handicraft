@@ -19,19 +19,10 @@ export default function Home() {
     fetchProducts();
   }, []);
 
-  const dummyProductNames = [
-    "Premium Wooden Diwan", "Royal Pattern Diwan", "Classic Traditional Diwan", "Carved Wooden Diwan",
-    "Wooden Swing", "Royal Wooden Swing", "Carved Indoor Swing", "Premium Teak Swing", "Antique Pattern Jhula",
-    "Carved Rectangle Table", "Square Carved Table", "Classic Long Table", "Round Pedestal Table", "Carved Glass Top Table Base",
-    "Comfort Cushioned Chair", "Wooden Wheel Rocking Chair", "Carved Wheel Rocking Chair", "Classic Slatted Chair"
-  ];
-
-  const validProducts = dbProducts.filter(p => !dummyProductNames.includes(p.name));
-
-  const dbDiwans = validProducts.filter(p => p.category === 'Wooden Diwan');
-  const dbSwings = validProducts.filter(p => p.category === 'Wooden Swing');
-  const dbCoffeeTables = validProducts.filter(p => p.category === 'Coffee Table');
-  const dbChairs = validProducts.filter(p => p.category === 'Wooden Chair');
+  const dbDiwans = dbProducts.filter(p => p.category === 'Wooden Diwan');
+  const dbSwings = dbProducts.filter(p => p.category === 'Wooden Swing');
+  const dbCoffeeTables = dbProducts.filter(p => p.category === 'Coffee Table');
+  const dbChairs = dbProducts.filter(p => p.category === 'Wooden Chair');
 
   return (
     <div className="flex flex-col min-h-screen">
