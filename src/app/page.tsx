@@ -80,92 +80,100 @@ export default function Home() {
       </section>
 
       {/* Scrolling Top Products Marquee - Wooden Diwans */}
-      <section className="py-12 bg-[#FAFAF9] overflow-hidden border-b border-gray-200">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Our Premium Collection</h2>
-          <p className="text-[#e07a5f] mt-2 font-medium">Finest Wooden Diwans</p>
-        </div>
-        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
-          <div className="flex gap-6 px-4 md:px-0">
-            {dbDiwans.map((product) => (
-              <div key={`db-diwan-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
-                <div className="relative w-full h-40 bg-white">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
-                </div>
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                  <h3 className="text-white font-bold text-center">{product.category}</h3>
-                </div>
-              </div>
-            ))}
+      {dbDiwans.length > 0 && (
+        <section className="py-12 bg-[#FAFAF9] overflow-hidden border-b border-gray-200">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Our Premium Collection</h2>
+            <p className="text-[#e07a5f] mt-2 font-medium">Finest Wooden Diwans</p>
           </div>
-        </div>
-      </section>
+          <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+            <div className="flex gap-6 px-4 md:px-0">
+              {dbDiwans.map((product) => (
+                <div key={`db-diwan-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                  <div className="relative w-full h-40 bg-white">
+                    <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                    <h3 className="text-white font-bold text-center">{product.category}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Scrolling Top Products Marquee - Wooden Swings */}
-      <section className="py-12 bg-[#F5F0E6] overflow-hidden border-b border-gray-200">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Royal Heritage</h2>
-          <p className="text-[#e07a5f] mt-2 font-medium">Traditional Wooden Swings (Jhula)</p>
-        </div>
-        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
-          <div className="flex gap-6 px-4 md:px-0">
-            {dbSwings.map((product) => (
-              <div key={`db-swing-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
-                <div className="relative w-full h-40 bg-white">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
-                </div>
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                  <h3 className="text-white font-bold text-center">{product.category}</h3>
-                </div>
-              </div>
-            ))}
+      {dbSwings.length > 0 && (
+        <section className="py-12 bg-[#F5F0E6] overflow-hidden border-b border-gray-200">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Royal Heritage</h2>
+            <p className="text-[#e07a5f] mt-2 font-medium">Traditional Wooden Swings (Jhula)</p>
           </div>
-        </div>
-      </section>
+          <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+            <div className="flex gap-6 px-4 md:px-0">
+              {dbSwings.map((product) => (
+                <div key={`db-swing-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                  <div className="relative w-full h-40 bg-white">
+                    <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                    <h3 className="text-white font-bold text-center">{product.category}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Scrolling Top Products Marquee - Coffee Tables */}
-      <section className="py-12 bg-[#FAFAF9] overflow-hidden border-b border-gray-200">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Elegant Living</h2>
-          <p className="text-[#e07a5f] mt-2 font-medium">Premium Wooden Coffee Tables</p>
-        </div>
-        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
-          <div className="flex gap-6 px-4 md:px-0">
-            {dbCoffeeTables.map((product) => (
-              <div key={`db-coffee-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
-                <div className="relative w-full h-40 bg-white">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
-                </div>
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                  <h3 className="text-white font-bold text-center">{product.category}</h3>
-                </div>
-              </div>
-            ))}
+      {dbCoffeeTables.length > 0 && (
+        <section className="py-12 bg-[#FAFAF9] overflow-hidden border-b border-gray-200">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Elegant Living</h2>
+            <p className="text-[#e07a5f] mt-2 font-medium">Premium Wooden Coffee Tables</p>
           </div>
-        </div>
-      </section>
+          <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+            <div className="flex gap-6 px-4 md:px-0">
+              {dbCoffeeTables.map((product) => (
+                <div key={`db-coffee-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                  <div className="relative w-full h-40 bg-white">
+                    <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                    <h3 className="text-white font-bold text-center">{product.category}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Scrolling Top Products Marquee - Wooden Chairs */}
-      <section className="py-12 bg-[#F5F0E6] overflow-hidden">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Classic Comfort</h2>
-          <p className="text-[#e07a5f] mt-2 font-medium">Handcrafted Wooden Chairs</p>
-        </div>
-        <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
-          <div className="flex gap-6 px-4 md:px-0">
-            {dbChairs.map((product) => (
-              <div key={`db-chair-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
-                <div className="relative w-full h-40 bg-white">
-                  <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
-                </div>
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
-                  <h3 className="text-white font-bold text-center">{product.category}</h3>
-                </div>
-              </div>
-            ))}
+      {dbChairs.length > 0 && (
+        <section className="py-12 bg-[#F5F0E6] overflow-hidden">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold font-serif text-[#2d3748]">Classic Comfort</h2>
+            <p className="text-[#e07a5f] mt-2 font-medium">Handcrafted Wooden Chairs</p>
           </div>
-        </div>
-      </section>
+          <div className="relative w-full overflow-x-auto hide-scrollbar pb-4">
+            <div className="flex gap-6 px-4 md:px-0">
+              {dbChairs.map((product) => (
+                <div key={`db-chair-${product.id}`} onClick={() => setSelectedImage(product.image_url)} className="relative w-72 sm:w-80 h-64 flex-shrink-0 bg-gray-200 rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 transition-transform duration-300 hover:scale-105 cursor-pointer flex flex-col justify-center">
+                  <div className="relative w-full h-40 bg-white">
+                    <Image src={product.image_url} alt={product.name} fill sizes="(max-width: 768px) 100vw, 33vw" unoptimized={true} className="object-contain p-2" />
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10">
+                    <h3 className="text-white font-bold text-center">{product.category}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Custom Furniture Request Section */}
       <section className="py-20 bg-gray-100 overflow-hidden border-b border-gray-200 relative">
