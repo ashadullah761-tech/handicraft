@@ -29,7 +29,7 @@ export default function Shop() {
     fetchProducts();
   }, []);
 
-  const categoryOrder = ['Wooden Diwan', 'Wooden Swing', 'Coffee Table', 'Wooden Chair', 'Others'];
+  const categoryOrder = ['Wooden Diwan', 'Wooden Swing', 'Coffee Table', 'Wooden Chair', 'Pooja Temple'];
   
   const allProducts = [...dbProducts].sort((a, b) => {
     const indexA = categoryOrder.indexOf(a.category);

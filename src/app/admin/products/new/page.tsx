@@ -31,7 +31,7 @@ export default function AddProductPage() {
     'Wooden Swing',
     'Coffee Table',
     'Wooden Chair',
-    'Others',
+    'Pooja Temple',
     'Custom Category'
   ]
 
