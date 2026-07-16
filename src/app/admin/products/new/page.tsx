@@ -32,6 +32,7 @@ export default function AddProductPage() {
     'Coffee Table',
     'Wooden Chair',
     'Pooja Temple',
+    'Key Holder',
     'Custom Category'
   ]
 

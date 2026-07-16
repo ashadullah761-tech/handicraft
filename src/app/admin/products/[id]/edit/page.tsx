@@ -38,6 +38,7 @@ export default function EditProductPage({ params }: { params: Promise<{ id: stri
     'Coffee Table',
     'Wooden Chair',
     'Pooja Temple',
+    'Key Holder',
     'Custom Category'
   ]
 
