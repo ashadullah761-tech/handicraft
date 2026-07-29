@@ -45,6 +45,7 @@ export function Footer() {
             <p><strong>Phone:</strong> +91 7877609451</p>
             <p><strong>WhatsApp:</strong> +91 7877609451</p>
             <p><strong>Location:</strong> Lawera Kallan, Jodhpur</p>
+            <p><strong>GSTIN:</strong> 08OJUPS5124N1ZY</p>
           </div>
         </div>
       </div>

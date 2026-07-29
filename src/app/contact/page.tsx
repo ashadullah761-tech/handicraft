@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, FileText } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -56,6 +56,16 @@ export default function Contact() {
               <div>
                 <h3 className="font-bold text-lg text-[#2d3748] mb-1">Email Us</h3>
                 <p className="text-gray-600">marudharExport9@gmail.com</p>
+              </div>
+            </div>
+
+            <div className="bg-gray-200 p-8 rounded-2xl shadow-sm border border-gray-100 flex items-start gap-4">
+              <div className="bg-[#e07a5f]/10 p-3 rounded-full text-[#e07a5f]">
+                <FileText className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg text-[#2d3748] mb-1">GST Registration</h3>
+                <p className="text-gray-600"><strong>GSTIN:</strong> 08OJUPS5124N1ZY</p>
               </div>
             </div>
           </div>
