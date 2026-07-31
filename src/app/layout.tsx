@@ -7,6 +7,11 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "Marudhar Export | Premium Handicrafts",
   description: "Exporting beautiful, culturally inspired, modern Indian handicrafts worldwide from Marudhar Export.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

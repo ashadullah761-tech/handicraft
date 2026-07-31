@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Globe } from "lucide-react";
+import { MELogo } from "@/components/ui/MELogo";
 
 export function Footer() {
   return (
     <footer className="bg-[#111111] text-[#fdfbf7] pt-16 pb-8 border-t-4 border-[#e07a5f]">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
         <div className="space-y-4">
-          <div className="flex items-center gap-2 text-[#f2cc8f]">
-            <Globe className="w-6 h-6" />
+          <div className="flex items-center gap-3 text-[#f2cc8f]">
+            <MELogo className="w-9 h-9 rounded-xl shadow-lg" />
             <h3 className="text-2xl font-bold font-serif">Marudhar Export</h3>
           </div>
           <p className="text-sm text-gray-300 max-w-xs">

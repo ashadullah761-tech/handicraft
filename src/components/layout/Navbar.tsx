@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { LanguageSelector } from "@/components/ui/LanguageSelector";
+import { MELogo } from "@/components/ui/MELogo";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,10 +13,8 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-[#e07a5f]/20 bg-[#fdfbf7]/80 backdrop-blur-md">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo and Name */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="bg-[#e07a5f] p-2 rounded-lg text-white">
-            <Globe className="w-6 h-6" />
-          </div>
+        <Link href="/" className="flex items-center gap-3">
+          <MELogo className="w-10 h-10 shadow-md rounded-xl" />
           <div className="flex flex-col">
             <span className="text-xl md:text-2xl font-bold tracking-tight text-[#2d3748] font-serif leading-none">
               Marudhar Export<span className="text-[#e07a5f]">.</span>
