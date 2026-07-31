@@ -8,9 +8,12 @@ export const metadata: Metadata = {
   title: "Marudhar Export | Premium Handicrafts",
   description: "Exporting beautiful, culturally inspired, modern Indian handicrafts worldwide from Marudhar Export.",
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", sizes: "any" }
+    ],
     shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    apple: "/apple-icon.svg",
   },
 };
 
