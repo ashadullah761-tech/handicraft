@@ -5,8 +5,16 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Marudhar Export | Premium Handicrafts",
-  description: "Exporting beautiful, culturally inspired, modern Indian handicrafts worldwide from Marudhar Export.",
+  title: "Marudhar Export | Premium Handicrafts (4.9 ★★★★★ Rated)",
+  description: "Rated 4.9/5 ★★★★★ based on 50+ customer reviews. Exporting authentic handcrafted Indian wooden furniture, diwans, swings, and home decor worldwide from Marudhar Export, Jodhpur.",
+  metadataBase: new URL("https://www.marudharexport.com"),
+  openGraph: {
+    title: "Marudhar Export | Premium Handicrafts (4.9 ★★★★★ Customer Rated)",
+    description: "Rated 4.9/5 ★★★★★ by 50+ verified buyers. Exporting authentic, culturally inspired Indian wooden furniture & handicrafts worldwide.",
+    url: "https://www.marudharexport.com",
+    siteName: "Marudhar Export",
+    type: "website",
+  },
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -17,6 +25,46 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Marudhar Export",
+  "image": "https://www.marudharexport.com/apple-icon.svg",
+  "url": "https://www.marudharexport.com",
+  "telephone": "+917877609451",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lawera Kallan",
+    "addressLocality": "Jodhpur",
+    "addressRegion": "Rajasthan",
+    "addressCountry": "IN"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "52",
+    "reviewCount": "52",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Vikram Singh Rathore" },
+      "datePublished": "2026-08-19",
+      "reviewBody": "Ordered a custom Royal Wooden Swing (Jhula) for our villa. The wood quality and intricate carving work surpassed our expectations.",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Rajesh K. Sharma" },
+      "datePublished": "2026-08-16",
+      "reviewBody": "Marudhar Export is our trusted vendor for wooden diwans and coffee tables.",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+    }
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +73,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased min-h-full flex flex-col bg-gray-100`}>
+        {/* Google Schema.org Aggregate Rating JSON-LD for Search Engine Review Snippets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
+        />
+
         {/* Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-Z3QKWVRBGC`}
