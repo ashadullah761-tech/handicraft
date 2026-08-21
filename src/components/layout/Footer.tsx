@@ -32,7 +32,6 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-gray-300">
             <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Contact Us</Link></li>
             <li><Link href="/reviews" className="hover:text-[#f4a261] text-[#f4a261] font-medium transition-colors">Customer Reviews & Ratings</Link></li>
-            <li><Link href="/qr-code" className="hover:text-[#f4a261] text-[#e07a5f] font-medium transition-colors">Permanent Free QR Code</Link></li>
             <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Export Enquiries</Link></li>
             <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Custom Orders</Link></li>
             <li><Link href="/contact" className="hover:text-[#f4a261] transition-colors">Bulk Pricing</Link></li>
