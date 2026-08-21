@@ -5,6 +5,7 @@ import { createClient } from "@/utils/supabase/client";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, X } from "lucide-react";
+import { CustomerReviewsSection } from "@/components/reviews/CustomerReviewsSection";
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -215,6 +216,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Customer Reviews Section */}
+      <CustomerReviewsSection />
 
       {/* Story/About Section */}
       <section id="about" className="py-24 bg-[#FAFAF9] text-[#2d3748]">

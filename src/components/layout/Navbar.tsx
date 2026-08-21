@@ -27,8 +27,10 @@ export function Navbar() {
         <nav className="hidden md:flex gap-8 items-center text-[#2d3748] font-medium">
           <Link href="/" className="hover:text-[#e07a5f] transition-colors">Home</Link>
           <Link href="/shop" className="hover:text-[#e07a5f] transition-colors">Shop</Link>
+          <Link href="/reviews" className="hover:text-[#e07a5f] transition-colors flex items-center gap-1 font-semibold text-[#e07a5f]">★ Reviews</Link>
           <Link href="/#about" className="hover:text-[#e07a5f] transition-colors">About Us</Link>
           <Link href="/contact" className="hover:text-[#e07a5f] transition-colors">Contact</Link>
+          <Link href="/qr-code" className="hover:text-[#e07a5f] transition-colors flex items-center gap-1">Free QR Code</Link>
           <LanguageSelector />
         </nav>
 
@@ -50,8 +52,10 @@ export function Navbar() {
           <nav className="flex flex-col p-4">
             <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Home</Link>
             <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Shop</Link>
+            <Link href="/reviews" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#e07a5f] font-semibold border-b border-gray-100 hover:text-[#d06b50] transition-colors">★ Customer Reviews</Link>
             <Link href="/#about" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">About Us</Link>
             <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#2d3748] font-medium border-b border-gray-100 hover:text-[#e07a5f] transition-colors">Contact</Link>
+            <Link href="/qr-code" onClick={() => setIsMobileMenuOpen(false)} className="block w-full py-4 px-2 text-[#e07a5f] font-semibold border-b border-gray-100 hover:text-[#d06b50] transition-colors">Free QR Code Generator</Link>
             <div className="py-4 px-2">
               <LanguageSelector />
             </div>
