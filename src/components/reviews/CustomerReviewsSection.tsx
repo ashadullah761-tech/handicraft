@@ -158,7 +158,7 @@ export function CustomerReviewsSection() {
             Customer Reviews & Ratings
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Dekhiye humare satisfied buyers aur global clients ne Marudhar Export ke baare me kya kaha hai.
+            See what our satisfied buyers and global clients have to say about Marudhar Export.
           </p>
         </div>
 
@@ -234,7 +234,7 @@ export function CustomerReviewsSection() {
                   Thank You for Your Feedback!
                 </h3>
                 <p className="text-gray-600 max-w-md mx-auto text-sm">
-                  Aapka review website par successfully add ho gaya hai. Hum aapke trust aur support ke liye shukriya ada karte hain!
+                  Your review has been successfully submitted! We truly appreciate your valuable trust and feedback.
                 </p>
               </div>
             ) : (
@@ -245,7 +245,7 @@ export function CustomerReviewsSection() {
                     Share Your Experience with Marudhar Export
                   </h3>
                   <p className="text-xs md:text-sm text-gray-500 mt-1">
-                    Apna feedback aur rating share karein taaki baaki buyers ka trust bane.
+                    Share your rating and feedback to help other prospective buyers make informed choices.
                   </p>
                 </div>
 
@@ -345,7 +345,7 @@ export function CustomerReviewsSection() {
                     required
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
-                    placeholder="Apna experience likhein (furniture quality, delivery, customer support...)"
+                    placeholder="Write your experience (furniture quality, delivery time, craftsmanship, customer service...)"
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#e07a5f] focus:border-transparent text-gray-900 text-sm font-medium"
                   ></textarea>
                 </div>
