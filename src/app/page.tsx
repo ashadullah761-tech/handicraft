@@ -43,6 +43,27 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Top Exclusive Offer Banner */}
+      <section className="w-full bg-[#140b06] py-3 sm:py-5 px-3 sm:px-6 border-b border-[#d4af37]/30">
+        <div className="max-w-5xl mx-auto flex flex-col items-center">
+          <div 
+            onClick={() => setSelectedImage("/exclusive-offer-banner.jpg")}
+            className="relative w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-[#d4af37]/50 cursor-pointer group transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.35)] hover:scale-[1.005]"
+            title="Click to view full image"
+          >
+            <Image 
+              src="/exclusive-offer-banner.jpg" 
+              alt="Marudhar Export - 10% Off Exclusive Offer" 
+              width={1024}
+              height={545}
+              priority
+              className="w-full h-auto block rounded-xl sm:rounded-2xl"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section / Banner */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden bg-[#2C1A12]">
         <div className="absolute inset-0 z-0">
