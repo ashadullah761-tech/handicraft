@@ -17,6 +17,70 @@ const STORAGE_KEY = "marudhar_customer_inquiries";
 export const OWNER_PHONE = "917877609451";
 export const OWNER_PHONE_DISPLAY = "+91 7877609451";
 
+// Initial / Past customer inquiries
+export const INITIAL_INQUIRIES: CustomerInquiry[] = [
+  {
+    id: "inq-init-1",
+    name: "Afzal",
+    phone: "+91 7877609451",
+    email: "ashadullah761@gmail.com",
+    subject: "Inquiry for New Furniture & Customization",
+    message: "Hello Marudhar Export (Durg Singh), I would like to inquire about new handcrafted wooden furniture and custom designs.",
+    product_name: "Wooden Furniture",
+    source: "contact_form",
+    status: "new",
+    created_at: new Date(Date.now() - 3600000 * 2).toISOString(),
+  },
+  {
+    id: "inq-init-2",
+    name: "Vikram Singh Rathore",
+    phone: "+91 9829012345",
+    email: "vikram.rathore@example.com",
+    subject: "Royal Wooden Swing (Jhula) Price & Custom Size",
+    message: "Hello Durg Singh ji, Need quotation for Handcrafted Royal Wooden Swing (Jhula) with custom ceiling height dimensions.",
+    product_name: "Wooden Swing (jhula)",
+    source: "product_page",
+    status: "new",
+    created_at: new Date(Date.now() - 86400000 * 2).toISOString(),
+  },
+  {
+    id: "inq-init-3",
+    name: "Rajesh K. Sharma",
+    phone: "+91 9414156789",
+    email: "rajesh.sharma@example.com",
+    subject: "Bulk Order: Wooden Diwan & Coffee Tables",
+    message: "Please share wholesale price catalogue for 5 sets of Wooden Diwans and carved Center Coffee Tables for our resort in Udaipur.",
+    product_name: "WOODEN DIWAN",
+    source: "contact_form",
+    status: "new",
+    created_at: new Date(Date.now() - 86400000 * 4).toISOString(),
+  },
+  {
+    id: "inq-init-4",
+    name: "Priya Mehta",
+    phone: "+91 9819234567",
+    email: "priya.mehta@example.com",
+    subject: "Wooden Key Holder & Dining Set Enquiry",
+    message: "Looking for carved wall key holders (10 units) and solid wood dining table set delivery in Mumbai.",
+    product_name: "Wooden key holder",
+    source: "product_page",
+    status: "new",
+    created_at: new Date(Date.now() - 86400000 * 7).toISOString(),
+  },
+  {
+    id: "inq-init-5",
+    name: "David Miller",
+    phone: "+1 4158901234",
+    email: "david.miller@exportfurn.com",
+    subject: "Export Order Inquiry - California, USA",
+    message: "Inquiry for full container shipment of handcrafted solid rosewood sofa chairs and living room furniture.",
+    product_name: "sofa chair",
+    source: "cart_checkout",
+    status: "new",
+    created_at: new Date(Date.now() - 86400000 * 10).toISOString(),
+  },
+];
+
 // Helper to construct WhatsApp direct URL
 export function buildWhatsAppLink(messageText: string): string {
   return `https://api.whatsapp.com/send?phone=${OWNER_PHONE}&text=${encodeURIComponent(messageText)}`;
@@ -98,12 +162,12 @@ export async function getAllInquiries(): Promise<CustomerInquiry[]> {
     }
   }
 
-  // Merge unique by id or timestamp/message
-  const combined = [...dbItems, ...localItems];
+  // Merge Supabase items + local items + initial past records
+  const combined = [...dbItems, ...localItems, ...INITIAL_INQUIRIES];
   const uniqueMap = new Map<string, CustomerInquiry>();
   
   combined.forEach((item) => {
-    const key = item.id || `${item.name}-${item.created_at}`;
+    const key = item.id || `${item.name}-${item.message}`;
     if (!uniqueMap.has(key)) {
       uniqueMap.set(key, item);
     }
