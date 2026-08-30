@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { LayoutDashboard, Package, LogOut, Loader2, Plus, Menu, X } from 'lucide-react'
+import { LayoutDashboard, Package, LogOut, Loader2, Plus, Menu, X, MessageSquare, Mail } from 'lucide-react'
 import { createClient } from '@/utils/supabase/client'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -55,6 +55,7 @@ export default function AdminLayout({
 
   const navigation = [
     { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+    { name: 'Customer Messages', href: '/admin/inquiries', icon: MessageSquare },
     { name: 'Products', href: '/admin/products', icon: Package },
     { name: 'Add Product', href: '/admin/products/new', icon: Plus },
   ]

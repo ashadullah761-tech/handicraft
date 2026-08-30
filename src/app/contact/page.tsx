@@ -1,19 +1,47 @@
 "use client";
 
-import { Mail, Phone, MapPin, Send, MessageCircle, FileText } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, FileText, CheckCircle2, PhoneCall } from "lucide-react";
 import { useState } from "react";
+import { saveInquiry, buildWhatsAppLink, OWNER_PHONE, OWNER_PHONE_DISPLAY } from "@/utils/inquiryService";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", email: "", subject: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [lastWhatsAppUrl, setLastWhatsAppUrl] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hello Marudhar Export (Durg Singh),\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Subject:* ${formData.subject}\n\n*Message:*\n${formData.message}`;
-    const whatsappUrl = `https://wa.me/917877609451?text=${encodeURIComponent(text)}`;
-    window.open(whatsappUrl, '_blank');
+    setIsSaving(true);
+
+    const formattedText = `Hello Marudhar Export (Durg Singh),\n\n*Name:* ${formData.name}\n*Phone:* ${formData.phone || "Not provided"}\n*Email:* ${formData.email || "Not provided"}\n*Subject:* ${formData.subject}\n\n*Message:*\n${formData.message}`;
+    const whatsappUrl = buildWhatsAppLink(formattedText);
+    setLastWhatsAppUrl(whatsappUrl);
+
+    // 1. Save to database / Admin store
+    await saveInquiry({
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      source: "contact_form",
+    });
+
+    // 2. Open WhatsApp in new tab
+    try {
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    } catch (err) {
+      console.warn("Popup blocked or window open error:", err);
+    }
+
+    setIsSaving(false);
     setSubmitted(true);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -45,7 +73,7 @@ export default function Contact() {
               <div>
                 <h3 className="font-bold text-lg text-[#2d3748] mb-1">Contact Details</h3>
                 <p className="text-gray-600 font-medium text-[#e07a5f] mb-1">Durg Singh</p>
-                <p className="text-gray-600">Phone: +91 7877609451<br/>WhatsApp: +91 7877609451</p>
+                <p className="text-gray-600">Phone: {OWNER_PHONE_DISPLAY}<br/>WhatsApp: {OWNER_PHONE_DISPLAY}</p>
               </div>
             </div>
 
@@ -76,21 +104,51 @@ export default function Contact() {
               <h2 className="text-3xl font-bold font-serif text-[#2d3748] mb-6">Send us a Message</h2>
               
               {submitted ? (
-                <div className="bg-green-50 text-green-700 p-6 rounded-xl text-center">
-                  <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-                  <p>Your inquiry has been sent directly to Durg Singh via WhatsApp. We will reply shortly.</p>
-                  <button 
-                    onClick={() => setSubmitted(false)}
-                    className="mt-4 px-6 py-2 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition-colors"
-                  >
-                    Send another message
-                  </button>
+                <div className="bg-white p-8 rounded-2xl border border-green-200 shadow-sm text-center space-y-5">
+                  <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-10 h-10" />
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Message Saved & Sent!</h3>
+                    <p className="text-gray-600 max-w-md mx-auto text-sm">
+                      Aapka message Marudhar Export system mein save ho gaya hai aur Durg Singh ji ko forward kar diya gaya hai.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    {lastWhatsAppUrl && (
+                      <a 
+                        href={lastWhatsAppUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto px-6 py-3.5 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2"
+                      >
+                        <MessageCircle className="w-5 h-5" /> Open in WhatsApp
+                      </a>
+                    )}
+                    <a
+                      href={`tel:+${OWNER_PHONE}`}
+                      className="w-full sm:w-auto px-6 py-3.5 bg-[#2d3748] hover:bg-black text-white font-bold rounded-xl shadow transition-all flex items-center justify-center gap-2"
+                    >
+                      <PhoneCall className="w-5 h-5" /> Call Direct
+                    </a>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-100">
+                    <button 
+                      onClick={handleReset}
+                      className="text-[#e07a5f] hover:underline text-sm font-semibold"
+                    >
+                      ← Send another message
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
                       <input 
                         type="text" 
                         required
@@ -101,32 +159,44 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Mobile / WhatsApp No. *</label>
+                      <input 
+                        type="tel" 
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#e07a5f]/50 focus:border-[#e07a5f] transition-all bg-gray-50"
+                        placeholder="+91 9876543210"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Email Address (Optional)</label>
                       <input 
                         type="email" 
-                        required
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#e07a5f]/50 focus:border-[#e07a5f] transition-all bg-gray-50"
                         placeholder="john@example.com"
                       />
                     </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Subject (e.g., Bulk Order Inquiry)</label>
-                    <input 
-                      type="text" 
-                      required
-                      value={formData.subject}
-                      onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#e07a5f]/50 focus:border-[#e07a5f] transition-all bg-gray-50"
-                      placeholder="How can we help you?"
-                    />
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={formData.subject}
+                        onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#e07a5f]/50 focus:border-[#e07a5f] transition-all bg-gray-50"
+                        placeholder="e.g. Bulk Order, Custom Furniture"
+                      />
+                    </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
                     <textarea 
                       required
                       rows={5}
@@ -139,9 +209,10 @@ export default function Contact() {
 
                   <button 
                     type="submit" 
-                    className="bg-[#25D366] hover:bg-[#1ebd5c] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 w-full md:w-auto"
+                    disabled={isSaving}
+                    className="bg-[#25D366] hover:bg-[#1ebd5c] text-white px-8 py-4 rounded-xl font-bold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 w-full md:w-auto disabled:opacity-75 cursor-pointer"
                   >
-                    Send to WhatsApp <MessageCircle className="w-5 h-5" />
+                    {isSaving ? "Saving & Sending..." : "Send to WhatsApp & Store"} <MessageCircle className="w-5 h-5" />
                   </button>
                 </form>
               )}

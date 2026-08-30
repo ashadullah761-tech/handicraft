@@ -118,12 +118,14 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
             <div className="border-t border-gray-200 py-8 mb-8">
               <div className="flex flex-col sm:flex-row gap-4 mb-4">
-                <Link 
-                  href="/contact"
-                  className="flex-1 bg-[#e07a5f] hover:bg-[#d06b50] text-white h-14 rounded-full font-semibold flex items-center justify-center gap-2 transition-colors shadow-md hover:shadow-lg"
+                <a 
+                  href={`https://api.whatsapp.com/send?phone=917877609451&text=${encodeURIComponent(`Hello Marudhar Export (Durg Singh),\n\nI am interested in this product:\n*Product:* ${product.name}\n*Material:* ${product.material || "Solid Wood"}\n*Category:* ${product.category}\n\nPlease share price, custom size availability, and delivery details.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-[#25D366] hover:bg-[#1ebd5c] text-white h-14 rounded-full font-semibold flex items-center justify-center gap-2 transition-colors shadow-md hover:shadow-lg"
                 >
-                  Enquire Now
-                </Link>
+                  Enquire on WhatsApp
+                </a>
 
                 <button 
                   onClick={toggleWishlist}
